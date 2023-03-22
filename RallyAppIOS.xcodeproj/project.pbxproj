@@ -21,6 +21,8 @@
 		284DF3F629CA868100EBFE73 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284DF3F529CA868100EBFE73 /* CartViewController.swift */; };
 		3FBF002729CAA0C7007BBCFA /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF002529CAA0C7007BBCFA /* TableViewCell.swift */; };
 		3FBF002829CAA0C7007BBCFA /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FBF002629CAA0C7007BBCFA /* TableViewCell.xib */; };
+		3FBF002C29CAA38C007BBCFA /* RallyDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF002A29CAA38C007BBCFA /* RallyDataSource.swift */; };
+		3FBF002D29CAA38C007BBCFA /* RallyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF002B29CAA38C007BBCFA /* RallyData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		284DF3F529CA868100EBFE73 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		3FBF002529CAA0C7007BBCFA /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		3FBF002629CAA0C7007BBCFA /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		3FBF002A29CAA38C007BBCFA /* RallyDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RallyDataSource.swift; sourceTree = "<group>"; };
+		3FBF002B29CAA38C007BBCFA /* RallyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RallyData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,7 @@
 		284DF3CA29C9FD2200EBFE73 /* RallyAppIOS */ = {
 			isa = PBXGroup;
 			children = (
+				3FBF002929CAA38C007BBCFA /* DataModels */,
 				284DF3E229CA2AF800EBFE73 /* Assets */,
 				3FBF002429CAA0A8007BBCFA /* TableView */,
 				284DF3DF29CA215F00EBFE73 /* ViewControllers */,
@@ -113,6 +118,15 @@
 				3FBF002629CAA0C7007BBCFA /* TableViewCell.xib */,
 			);
 			path = TableView;
+			sourceTree = "<group>";
+		};
+		3FBF002929CAA38C007BBCFA /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				3FBF002A29CAA38C007BBCFA /* RallyDataSource.swift */,
+				3FBF002B29CAA38C007BBCFA /* RallyData.swift */,
+			);
+			path = DataModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,10 +205,12 @@
 			files = (
 				284DF3F229CA651B00EBFE73 /* SignUpViewController.swift in Sources */,
 				3FBF002729CAA0C7007BBCFA /* TableViewCell.swift in Sources */,
+				3FBF002D29CAA38C007BBCFA /* RallyData.swift in Sources */,
 				284DF3D029C9FD2200EBFE73 /* HomeViewController.swift in Sources */,
 				284DF3F629CA868100EBFE73 /* CartViewController.swift in Sources */,
 				284DF3E129CA21A100EBFE73 /* UserViewController.swift in Sources */,
 				284DF3CC29C9FD2200EBFE73 /* AppDelegate.swift in Sources */,
+				3FBF002C29CAA38C007BBCFA /* RallyDataSource.swift in Sources */,
 				284DF3EE29CA4DF800EBFE73 /* LogInViewController.swift in Sources */,
 				284DF3CE29C9FD2200EBFE73 /* SceneDelegate.swift in Sources */,
 			);

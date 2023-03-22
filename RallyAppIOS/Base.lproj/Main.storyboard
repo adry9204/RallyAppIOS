@@ -42,17 +42,20 @@
                                 </constraints>
                                 <edgeInsets key="layoutMargins" top="16" left="20" bottom="16" right="8"/>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DIK-Cp-VpU">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DIK-Cp-VpU">
                                 <rect key="frame" x="29" y="150" width="334" height="526"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
+                            <constraint firstItem="DIK-Cp-VpU" firstAttribute="top" secondItem="VIE-Zf-t2J" secondAttribute="bottom" constant="30" id="HHs-pZ-efe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DIK-Cp-VpU" secondAttribute="bottom" constant="58" id="bCS-aS-o67"/>
+                            <constraint firstItem="DIK-Cp-VpU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="29" id="d7t-Zn-6rC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VIE-Zf-t2J" secondAttribute="trailing" id="hqV-iY-rOo"/>
                             <constraint firstItem="VIE-Zf-t2J" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mDe-Nu-YEh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DIK-Cp-VpU" secondAttribute="trailing" constant="30" id="r7a-dc-KiW"/>
                             <constraint firstItem="VIE-Zf-t2J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="yHd-Wl-tml"/>
                         </constraints>
                     </view>
@@ -60,6 +63,7 @@
                     <navigationItem key="navigationItem" id="hu0-P4-xUc"/>
                     <connections>
                         <outlet property="helloLabel" destination="AjG-08-vxs" id="rgB-PN-aQh"/>
+                        <outlet property="rallyTableView" destination="DIK-Cp-VpU" id="CjE-Zh-mUV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

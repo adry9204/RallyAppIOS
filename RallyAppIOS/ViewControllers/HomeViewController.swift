@@ -7,7 +7,9 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+   
+    
 
     @IBOutlet weak var helloLabel: UILabel!
     var username = ""
@@ -22,6 +24,13 @@ class HomeViewController: UIViewController {
         helloLabel.text = "Hello " + username + " 👋"
     }
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
 
 }
 

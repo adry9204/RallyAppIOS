@@ -19,6 +19,8 @@
 		284DF3EE29CA4DF800EBFE73 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284DF3ED29CA4DF800EBFE73 /* LogInViewController.swift */; };
 		284DF3F229CA651B00EBFE73 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284DF3F129CA651B00EBFE73 /* SignUpViewController.swift */; };
 		284DF3F629CA868100EBFE73 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284DF3F529CA868100EBFE73 /* CartViewController.swift */; };
+		3FBF002729CAA0C7007BBCFA /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF002529CAA0C7007BBCFA /* TableViewCell.swift */; };
+		3FBF002829CAA0C7007BBCFA /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FBF002629CAA0C7007BBCFA /* TableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		284DF3ED29CA4DF800EBFE73 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		284DF3F129CA651B00EBFE73 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		284DF3F529CA868100EBFE73 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		3FBF002529CAA0C7007BBCFA /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		3FBF002629CAA0C7007BBCFA /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				284DF3E229CA2AF800EBFE73 /* Assets */,
+				3FBF002429CAA0A8007BBCFA /* TableView */,
 				284DF3DF29CA215F00EBFE73 /* ViewControllers */,
 				284DF3CB29C9FD2200EBFE73 /* AppDelegate.swift */,
 				284DF3CD29C9FD2200EBFE73 /* SceneDelegate.swift */,
@@ -99,6 +104,15 @@
 				284DF3E929CA2EA200EBFE73 /* top_banner.png */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		3FBF002429CAA0A8007BBCFA /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				3FBF002529CAA0C7007BBCFA /* TableViewCell.swift */,
+				3FBF002629CAA0C7007BBCFA /* TableViewCell.xib */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				284DF3D829C9FD2400EBFE73 /* LaunchScreen.storyboard in Resources */,
+				3FBF002829CAA0C7007BBCFA /* TableViewCell.xib in Resources */,
 				284DF3EC29CA453200EBFE73 /* fork.png in Resources */,
 				284DF3EA29CA2EA200EBFE73 /* top_banner.png in Resources */,
 				284DF3D329C9FD2200EBFE73 /* Main.storyboard in Resources */,
@@ -175,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				284DF3F229CA651B00EBFE73 /* SignUpViewController.swift in Sources */,
+				3FBF002729CAA0C7007BBCFA /* TableViewCell.swift in Sources */,
 				284DF3D029C9FD2200EBFE73 /* HomeViewController.swift in Sources */,
 				284DF3F629CA868100EBFE73 /* CartViewController.swift in Sources */,
 				284DF3E129CA21A100EBFE73 /* UserViewController.swift in Sources */,

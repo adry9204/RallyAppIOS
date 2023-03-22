@@ -17,6 +17,7 @@
 		284DF3EA29CA2EA200EBFE73 /* top_banner.png in Resources */ = {isa = PBXBuildFile; fileRef = 284DF3E929CA2EA200EBFE73 /* top_banner.png */; };
 		284DF3EC29CA453200EBFE73 /* fork.png in Resources */ = {isa = PBXBuildFile; fileRef = 284DF3EB29CA453200EBFE73 /* fork.png */; };
 		284DF3EE29CA4DF800EBFE73 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284DF3ED29CA4DF800EBFE73 /* LogInViewController.swift */; };
+		284DF3F229CA651B00EBFE73 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284DF3F129CA651B00EBFE73 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		284DF3E929CA2EA200EBFE73 /* top_banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top_banner.png; sourceTree = "<group>"; };
 		284DF3EB29CA453200EBFE73 /* fork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fork.png; sourceTree = "<group>"; };
 		284DF3ED29CA4DF800EBFE73 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		284DF3F129CA651B00EBFE73 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				284DF3CF29C9FD2200EBFE73 /* ViewController.swift */,
 				284DF3E029CA21A100EBFE73 /* UserViewController.swift */,
 				284DF3ED29CA4DF800EBFE73 /* LogInViewController.swift */,
+				284DF3F129CA651B00EBFE73 /* SignUpViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				284DF3F229CA651B00EBFE73 /* SignUpViewController.swift in Sources */,
 				284DF3D029C9FD2200EBFE73 /* ViewController.swift in Sources */,
 				284DF3E129CA21A100EBFE73 /* UserViewController.swift in Sources */,
 				284DF3CC29C9FD2200EBFE73 /* AppDelegate.swift in Sources */,

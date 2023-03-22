@@ -1,5 +1,5 @@
 //
-//  LogInViewController.swift
+//  SignUpViewController.swift
 //  RallyAppIOS
 //
 //  Created by Adriana Diaz Torres on 3/21/23.
@@ -7,17 +7,15 @@
 
 import UIKit
 
-class LogInViewController: UIViewController {
+class SignUpViewController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        containerView.layer.cornerRadius = 15
- 
+        containerView.layer.cornerRadius = 20
     }
-
-    @IBAction func unwindToLogIn(unwindSegue: UIStoryboardSegue){
-        
-    }
+    
 }
+

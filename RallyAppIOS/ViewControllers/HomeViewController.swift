@@ -7,62 +7,59 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class HomeViewController: UIViewController, HomeTableViewDelegate{
    
     
+    
     @IBOutlet weak var rallyTableView: UITableView!
+    let homeTableViewAdapter = HomeTableViewAdapter()
     
     @IBOutlet weak var helloLabel: UILabel!
     var username = ""
     var rallyDataSource: RallyDataSource? = RallyDataSource()
-
+    
+    var selectedMenu: Menu? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        homeTableViewAdapter.tableView = rallyTableView
+        homeTableViewAdapter.delegate = self
         //reading the username from Defaults
         let defaults = UserDefaults.standard
         username = defaults.string(forKey: "Username")!
         helloLabel.text = "Hello " + username + " 👋"
         
         
-        rallyTableView.delegate = self
-        rallyTableView.dataSource = self
+       
+        rallyTableView.register(TableViewCell.nib(), forCellReuseIdentifier: TableViewCell.identifier)
+        
+        rallyTableView.delegate = homeTableViewAdapter
+        rallyTableView.dataSource = homeTableViewAdapter
+        
+        homeTableViewAdapter.getMenuFromApi()
         
         rallyDataSource?.loadData()
         print(rallyDataSource!.dataSource)
         
-        
-        rallyTableView.register(TableViewCell.nib(), forCellReuseIdentifier: TableViewCell.identifier)
     }
     
-    
-    
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 50
+    override func viewWillAppear(_ animated: Bool) {
+        selectedMenu = nil
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+    func tableItemSelected(dataAtCell: Menu, indexPath: IndexPath) {
+        selectedMenu = dataAtCell
+        performSegue(withIdentifier: PlateDetailsViewController.segueIdentifier, sender: self)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as! TableViewCell
-       // cell.populatTableCell(data: rallyDataSource(at: indexPath.row))
-        return cell
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == PlateDetailsViewController.segueIdentifier {
+            let destinationVC = segue.destination as? PlateDetailsViewController
+            destinationVC?.menuItem = selectedMenu
+        }
     }
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let data = rallyDataSource!.getDataAt(at: indexPath.row)
-//
-//
-//    }
-    
-    
-   
-    
-    
 
 }
 

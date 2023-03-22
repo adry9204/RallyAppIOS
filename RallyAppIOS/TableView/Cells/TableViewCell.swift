@@ -17,6 +17,7 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var productDescription: UITextView!
     
     // returns UINib for the table cell
     static func nib()->UINib{
@@ -26,14 +27,13 @@ class TableViewCell: UITableViewCell {
 
     
     // populates the cell with given data
-    func populatTableCell(data: RallyData){
-    
-        nameLabel.text = "Hamburger"
-        priceLabel.text = "$20"
+    func populatTableCell(data: Menu){
+        nameLabel.text = data.name
+        priceLabel.text = "$\(data.price)"
+        productDescription.text = data.description
+        let imageUrl = URL(string: data.image)!
+        ImageLoader.downloadImage(from: imageUrl, view: productImage)
     }
     
-   
-    
-
 }
 

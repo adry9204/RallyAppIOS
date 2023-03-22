@@ -23,6 +23,10 @@
 		3FBF002829CAA0C7007BBCFA /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FBF002629CAA0C7007BBCFA /* TableViewCell.xib */; };
 		3FBF002C29CAA38C007BBCFA /* RallyDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF002A29CAA38C007BBCFA /* RallyDataSource.swift */; };
 		3FBF002D29CAA38C007BBCFA /* RallyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF002B29CAA38C007BBCFA /* RallyData.swift */; };
+		3FBF003229CAB9EC007BBCFA /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF003029CAB9EC007BBCFA /* CartCell.swift */; };
+		3FBF003329CAB9EC007BBCFA /* CartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FBF003129CAB9EC007BBCFA /* CartCell.xib */; };
+		3FBF003529CABBF8007BBCFA /* CartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF003429CABBF8007BBCFA /* CartData.swift */; };
+		3FBF003729CABC02007BBCFA /* CartDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF003629CABC02007BBCFA /* CartDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +48,10 @@
 		3FBF002629CAA0C7007BBCFA /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		3FBF002A29CAA38C007BBCFA /* RallyDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RallyDataSource.swift; sourceTree = "<group>"; };
 		3FBF002B29CAA38C007BBCFA /* RallyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RallyData.swift; sourceTree = "<group>"; };
+		3FBF003029CAB9EC007BBCFA /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
+		3FBF003129CAB9EC007BBCFA /* CartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartCell.xib; sourceTree = "<group>"; };
+		3FBF003429CABBF8007BBCFA /* CartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartData.swift; sourceTree = "<group>"; };
+		3FBF003629CABC02007BBCFA /* CartDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +124,8 @@
 			children = (
 				3FBF002529CAA0C7007BBCFA /* TableViewCell.swift */,
 				3FBF002629CAA0C7007BBCFA /* TableViewCell.xib */,
+				3FBF003029CAB9EC007BBCFA /* CartCell.swift */,
+				3FBF003129CAB9EC007BBCFA /* CartCell.xib */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -124,6 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				3FBF002A29CAA38C007BBCFA /* RallyDataSource.swift */,
+				3FBF003629CABC02007BBCFA /* CartDataSource.swift */,
+				3FBF003429CABBF8007BBCFA /* CartData.swift */,
 				3FBF002B29CAA38C007BBCFA /* RallyData.swift */,
 			);
 			path = DataModels;
@@ -188,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				284DF3D829C9FD2400EBFE73 /* LaunchScreen.storyboard in Resources */,
+				3FBF003329CAB9EC007BBCFA /* CartCell.xib in Resources */,
 				3FBF002829CAA0C7007BBCFA /* TableViewCell.xib in Resources */,
 				284DF3EC29CA453200EBFE73 /* fork.png in Resources */,
 				284DF3EA29CA2EA200EBFE73 /* top_banner.png in Resources */,
@@ -204,10 +217,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				284DF3F229CA651B00EBFE73 /* SignUpViewController.swift in Sources */,
+				3FBF003729CABC02007BBCFA /* CartDataSource.swift in Sources */,
 				3FBF002729CAA0C7007BBCFA /* TableViewCell.swift in Sources */,
 				3FBF002D29CAA38C007BBCFA /* RallyData.swift in Sources */,
 				284DF3D029C9FD2200EBFE73 /* HomeViewController.swift in Sources */,
+				3FBF003229CAB9EC007BBCFA /* CartCell.swift in Sources */,
 				284DF3F629CA868100EBFE73 /* CartViewController.swift in Sources */,
+				3FBF003529CABBF8007BBCFA /* CartData.swift in Sources */,
 				284DF3E129CA21A100EBFE73 /* UserViewController.swift in Sources */,
 				284DF3CC29C9FD2200EBFE73 /* AppDelegate.swift in Sources */,
 				3FBF002C29CAA38C007BBCFA /* RallyDataSource.swift in Sources */,

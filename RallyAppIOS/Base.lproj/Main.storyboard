@@ -504,25 +504,34 @@
                                     <action selector="saveChangesBttnPressed:" destination="ntG-Eh-N2s" eventType="touchUpInside" id="hPT-ij-EUu"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5xe-JJ-i1x">
+                                <rect key="frame" x="29" y="128" width="335" height="434"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="prj-fx-LeP"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="prj-fx-LeP" firstAttribute="bottom" secondItem="e8l-0U-sbe" secondAttribute="bottom" constant="34" id="4V0-ix-BQJ"/>
+                            <constraint firstItem="5xe-JJ-i1x" firstAttribute="top" secondItem="MiJ-GN-o4M" secondAttribute="bottom" constant="8" symbolic="YES" id="AEU-7o-WDS"/>
                             <constraint firstItem="prj-fx-LeP" firstAttribute="trailing" secondItem="MiJ-GN-o4M" secondAttribute="trailing" id="DQj-7n-S2T"/>
                             <constraint firstItem="MiJ-GN-o4M" firstAttribute="top" secondItem="prj-fx-LeP" secondAttribute="top" id="JY2-NY-eKv"/>
+                            <constraint firstItem="prj-fx-LeP" firstAttribute="trailing" secondItem="5xe-JJ-i1x" secondAttribute="trailing" constant="29" id="Jv7-jB-RLn"/>
                             <constraint firstItem="e8l-0U-sbe" firstAttribute="centerX" secondItem="lJ3-lS-FWe" secondAttribute="centerX" id="QCt-Zv-lW5"/>
+                            <constraint firstItem="5xe-JJ-i1x" firstAttribute="leading" secondItem="prj-fx-LeP" secondAttribute="leading" constant="29" id="SOv-7a-b4j"/>
                             <constraint firstItem="MiJ-GN-o4M" firstAttribute="leading" secondItem="prj-fx-LeP" secondAttribute="leading" id="b5P-SE-3Xd"/>
+                            <constraint firstItem="e8l-0U-sbe" firstAttribute="top" secondItem="5xe-JJ-i1x" secondAttribute="bottom" constant="96" id="jht-KD-Eh5"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Cart" image="cart" catalog="system" id="lsV-ro-uye"/>
                     <connections>
-                        <outlet property="helloLabel" destination="FfH-Kl-PUc" id="T1H-dS-WF8"/>
+                        <outlet property="cartTableView" destination="5xe-JJ-i1x" id="ebA-st-emK"/>
+                        <outlet property="helloLabel" destination="FfH-Kl-PUc" id="Afu-ot-T9f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TPh-sZ-ZCK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="618" y="592"/>
+            <point key="canvasLocation" x="617.55725190839689" y="591.54929577464793"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="g4J-rz-Siq">

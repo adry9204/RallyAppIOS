@@ -11,7 +11,7 @@
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="RallyAppIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="HomeViewController" customModule="RallyAppIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -53,6 +53,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="BKw-NL-fl7"/>
                     <navigationItem key="navigationItem" id="hu0-P4-xUc"/>
+                    <connections>
+                        <outlet property="helloLabel" destination="AjG-08-vxs" id="rgB-PN-aQh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -130,7 +133,7 @@
                                             <color key="baseBackgroundColor" red="0.19758763909999999" green="0.3193272352" blue="0.54512226580000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="shd-VB-zn3" kind="show" id="Hxu-ns-vIO"/>
+                                            <segue destination="shd-VB-zn3" kind="show" identifier="goToHomeScene" id="Hxu-ns-vIO"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -171,6 +174,8 @@
                     </view>
                     <connections>
                         <outlet property="containerView" destination="Lca-hk-N6O" id="Mek-ff-uf9"/>
+                        <outlet property="passwordTextInput" destination="Ukl-nL-lhQ" id="8Ld-d9-BiP"/>
+                        <outlet property="usernameTextInput" destination="xTn-Qj-0Kg" id="Vag-an-DzM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7r5-Rt-hk7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -434,6 +439,7 @@
                     <connections>
                         <outlet property="emailEditText" destination="w3k-1e-QcM" id="BDa-xH-69l"/>
                         <outlet property="fullNameEditText" destination="GPC-Hs-zAB" id="F6e-2G-yJe"/>
+                        <outlet property="helloLabel" destination="xdU-Cv-Vmq" id="LCH-l5-NFS"/>
                         <outlet property="passwordEditText" destination="CH1-tJ-Pt4" id="Fo7-sw-MUC"/>
                         <outlet property="usernameEditText" destination="WAe-Ls-43M" id="hah-YA-4G3"/>
                     </connections>
@@ -444,7 +450,7 @@
         <!--Cart-->
         <scene sceneID="maj-x3-PPl">
             <objects>
-                <viewController id="0pr-KY-3MW" sceneMemberID="viewController">
+                <viewController id="0pr-KY-3MW" customClass="CartViewController" customModule="RallyAppIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lJ3-lS-FWe">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -474,16 +480,36 @@
                                 </constraints>
                                 <edgeInsets key="layoutMargins" top="16" left="20" bottom="16" right="8"/>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8l-0U-sbe">
+                                <rect key="frame" x="46.666666666666657" y="658" width="300" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="C3o-BN-wRZ"/>
+                                    <constraint firstAttribute="width" constant="300" id="bTa-Lj-Jch"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="CHECK OUT">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" red="0.99694269899999999" green="0.55737709999999996" blue="0.2273259759" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="saveChangesBttnPressed:" destination="ntG-Eh-N2s" eventType="touchUpInside" id="hPT-ij-EUu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="prj-fx-LeP"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
+                            <constraint firstItem="prj-fx-LeP" firstAttribute="bottom" secondItem="e8l-0U-sbe" secondAttribute="bottom" constant="34" id="4V0-ix-BQJ"/>
                             <constraint firstItem="prj-fx-LeP" firstAttribute="trailing" secondItem="MiJ-GN-o4M" secondAttribute="trailing" id="DQj-7n-S2T"/>
                             <constraint firstItem="MiJ-GN-o4M" firstAttribute="top" secondItem="prj-fx-LeP" secondAttribute="top" id="JY2-NY-eKv"/>
+                            <constraint firstItem="e8l-0U-sbe" firstAttribute="centerX" secondItem="lJ3-lS-FWe" secondAttribute="centerX" id="QCt-Zv-lW5"/>
                             <constraint firstItem="MiJ-GN-o4M" firstAttribute="leading" secondItem="prj-fx-LeP" secondAttribute="leading" id="b5P-SE-3Xd"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Cart" image="cart" catalog="system" id="lsV-ro-uye"/>
+                    <connections>
+                        <outlet property="helloLabel" destination="FfH-Kl-PUc" id="T1H-dS-WF8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TPh-sZ-ZCK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

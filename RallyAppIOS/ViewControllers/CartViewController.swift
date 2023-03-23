@@ -35,6 +35,10 @@ class CartViewController: UIViewController {
         cartTableViewAdapter.getCartsFromApi(userId: UserAuth.userId!, token: UserAuth.token!)
     }
     
+    @IBAction func checkOutButtonClicked(_ sender: Any) {
+        performSegue(withIdentifier: CheckoutViewController.identifier, sender: self)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         cartTableViewAdapter.getCartsFromApi(userId: UserAuth.userId!, token: UserAuth.token!)
     }

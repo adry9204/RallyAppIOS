@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="addressItemCell" id="KGk-i7-Jjw" customClass="AddressItemCell" customModule="RallyAppIOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="400" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address Line 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6g-Rb-flP">
+                        <rect key="frame" x="7" y="11" width="298" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="298" id="8WQ-zg-tJ7"/>
+                            <constraint firstAttribute="height" constant="24" id="9MG-Xs-JZY"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name in address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWX-rV-zoP">
+                        <rect key="frame" x="7" y="43" width="298" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="298" id="agG-BQ-JER"/>
+                            <constraint firstAttribute="height" constant="24" id="hs1-bN-HNl"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <switch opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p4h-uG-V4V">
+                        <rect key="frame" x="339" y="25" width="51" height="31"/>
+                    </switch>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="kWX-rV-zoP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="7" id="27e-i0-BAD"/>
+                    <constraint firstAttribute="trailing" secondItem="p4h-uG-V4V" secondAttribute="trailing" constant="12" id="8mO-c0-Kvp"/>
+                    <constraint firstItem="R6g-Rb-flP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="DgR-LT-aVE"/>
+                    <constraint firstItem="p4h-uG-V4V" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="LN4-58-OuV"/>
+                    <constraint firstItem="kWX-rV-zoP" firstAttribute="top" secondItem="R6g-Rb-flP" secondAttribute="bottom" constant="8" symbolic="YES" id="VdA-sD-mOk"/>
+                    <constraint firstAttribute="bottom" secondItem="p4h-uG-V4V" secondAttribute="bottom" constant="24" id="Ymz-zD-HKN"/>
+                    <constraint firstItem="R6g-Rb-flP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="7" id="xaO-5v-S62"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="addressLine1" destination="R6g-Rb-flP" id="wlI-eQ-dtX"/>
+                <outlet property="addressName" destination="kWX-rV-zoP" id="ZkD-SE-GA5"/>
+                <outlet property="addressSelectedToggle" destination="p4h-uG-V4V" id="drN-an-OID"/>
+            </connections>
+            <point key="canvasLocation" x="41" y="-14"/>
+        </tableViewCell>
+    </objects>
+</document>

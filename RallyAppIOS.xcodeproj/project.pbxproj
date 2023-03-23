@@ -31,6 +31,17 @@
 		F6F14F9129CBCE54006C86CB /* CartItemCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6F14F8F29CBCE54006C86CB /* CartItemCellTableViewCell.xib */; };
 		F6F14F9329CBD019006C86CB /* CartTableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F14F9229CBD019006C86CB /* CartTableViewAdapter.swift */; };
 		F6F14F9529CBD628006C86CB /* CartTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F14F9429CBD628006C86CB /* CartTableViewDelegate.swift */; };
+		F6F4D3E229CC137500058B88 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F4D3E129CC137500058B88 /* CheckoutViewController.swift */; };
+		F6F4D3E529CC186100058B88 /* OrderItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F4D3E329CC186100058B88 /* OrderItemCell.swift */; };
+		F6F4D3E629CC186100058B88 /* OrderItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6F4D3E429CC186100058B88 /* OrderItemCell.xib */; };
+		F6F4D3E829CC1BA700058B88 /* OrderModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F4D3E729CC1BA700058B88 /* OrderModels.swift */; };
+		F6F4D3EA29CC1E1500058B88 /* OrderlistTableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F4D3E929CC1E1500058B88 /* OrderlistTableViewAdapter.swift */; };
+		F6F4D3EC29CC2AA700058B88 /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F4D3EB29CC2AA700058B88 /* AddressModel.swift */; };
+		F6F4D3F129CC2FAC00058B88 /* AddressItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F4D3EF29CC2FAC00058B88 /* AddressItemCell.swift */; };
+		F6F4D3F229CC2FAC00058B88 /* AddressItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6F4D3F029CC2FAC00058B88 /* AddressItemCell.xib */; };
+		F6F4D3F429CC31A200058B88 /* AddressService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F4D3F329CC31A200058B88 /* AddressService.swift */; };
+		F6F4D3F629CC37F400058B88 /* AddressTableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F4D3F529CC37F400058B88 /* AddressTableViewAdapter.swift */; };
+		F6F4D3F829CC3D8000058B88 /* OrderServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F4D3F729CC3D8000058B88 /* OrderServices.swift */; };
 		F6F8E25529CB7DD000F37E9C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8E25129CB7DCF00F37E9C /* UserModel.swift */; };
 		F6F8E25629CB7DD000F37E9C /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8E25229CB7DD000F37E9C /* CartModel.swift */; };
 		F6F8E25729CB7DD000F37E9C /* MenuModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8E25329CB7DD000F37E9C /* MenuModels.swift */; };
@@ -70,6 +81,17 @@
 		F6F14F8F29CBCE54006C86CB /* CartItemCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartItemCellTableViewCell.xib; sourceTree = "<group>"; };
 		F6F14F9229CBD019006C86CB /* CartTableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewAdapter.swift; sourceTree = "<group>"; };
 		F6F14F9429CBD628006C86CB /* CartTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewDelegate.swift; sourceTree = "<group>"; };
+		F6F4D3E129CC137500058B88 /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
+		F6F4D3E329CC186100058B88 /* OrderItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemCell.swift; sourceTree = "<group>"; };
+		F6F4D3E429CC186100058B88 /* OrderItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderItemCell.xib; sourceTree = "<group>"; };
+		F6F4D3E729CC1BA700058B88 /* OrderModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModels.swift; sourceTree = "<group>"; };
+		F6F4D3E929CC1E1500058B88 /* OrderlistTableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderlistTableViewAdapter.swift; sourceTree = "<group>"; };
+		F6F4D3EB29CC2AA700058B88 /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
+		F6F4D3EF29CC2FAC00058B88 /* AddressItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressItemCell.swift; sourceTree = "<group>"; };
+		F6F4D3F029CC2FAC00058B88 /* AddressItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressItemCell.xib; sourceTree = "<group>"; };
+		F6F4D3F329CC31A200058B88 /* AddressService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressService.swift; sourceTree = "<group>"; };
+		F6F4D3F529CC37F400058B88 /* AddressTableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableViewAdapter.swift; sourceTree = "<group>"; };
+		F6F4D3F729CC3D8000058B88 /* OrderServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderServices.swift; sourceTree = "<group>"; };
 		F6F8E25129CB7DCF00F37E9C /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		F6F8E25229CB7DD000F37E9C /* CartModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
 		F6F8E25329CB7DD000F37E9C /* MenuModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuModels.swift; sourceTree = "<group>"; };
@@ -139,6 +161,7 @@
 				284DF3F129CA651B00EBFE73 /* SignUpViewController.swift */,
 				284DF3F529CA868100EBFE73 /* CartViewController.swift */,
 				F6F14F8929CBAF47006C86CB /* PlateDetailsViewController.swift */,
+				F6F4D3E129CC137500058B88 /* CheckoutViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -171,6 +194,8 @@
 				3FBF002A29CAA38C007BBCFA /* RallyDataSource.swift */,
 				3FBF002B29CAA38C007BBCFA /* RallyData.swift */,
 				F6F8E26929CB934900F37E9C /* UserLoginResponse.swift */,
+				F6F4D3E729CC1BA700058B88 /* OrderModels.swift */,
+				F6F4D3EB29CC2AA700058B88 /* AddressModel.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -189,6 +214,8 @@
 			children = (
 				F6F8E25B29CB804E00F37E9C /* HomeTableViewAdapter.swift */,
 				F6F14F9229CBD019006C86CB /* CartTableViewAdapter.swift */,
+				F6F4D3E929CC1E1500058B88 /* OrderlistTableViewAdapter.swift */,
+				F6F4D3F529CC37F400058B88 /* AddressTableViewAdapter.swift */,
 			);
 			path = Adapters;
 			sourceTree = "<group>";
@@ -200,6 +227,10 @@
 				3FBF002629CAA0C7007BBCFA /* TableViewCell.xib */,
 				F6F14F8E29CBCE54006C86CB /* CartItemCellTableViewCell.swift */,
 				F6F14F8F29CBCE54006C86CB /* CartItemCellTableViewCell.xib */,
+				F6F4D3E329CC186100058B88 /* OrderItemCell.swift */,
+				F6F4D3E429CC186100058B88 /* OrderItemCell.xib */,
+				F6F4D3EF29CC2FAC00058B88 /* AddressItemCell.swift */,
+				F6F4D3F029CC2FAC00058B88 /* AddressItemCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -210,6 +241,8 @@
 				F6F8E26029CB86EC00F37E9C /* CartServices.swift */,
 				F6F8E26129CB86EC00F37E9C /* MenuServices.swift */,
 				F6F8E26729CB92AA00F37E9C /* UserServices.swift */,
+				F6F4D3F329CC31A200058B88 /* AddressService.swift */,
+				F6F4D3F729CC3D8000058B88 /* OrderServices.swift */,
 			);
 			path = ApiServices;
 			sourceTree = "<group>";
@@ -294,6 +327,8 @@
 				F6F14F9129CBCE54006C86CB /* CartItemCellTableViewCell.xib in Resources */,
 				284DF3EC29CA453200EBFE73 /* fork.png in Resources */,
 				284DF3EA29CA2EA200EBFE73 /* top_banner.png in Resources */,
+				F6F4D3E629CC186100058B88 /* OrderItemCell.xib in Resources */,
+				F6F4D3F229CC2FAC00058B88 /* AddressItemCell.xib in Resources */,
 				284DF3D329C9FD2200EBFE73 /* Main.storyboard in Resources */,
 				284DF3E829CA2E7500EBFE73 /* Assets.xcassets in Resources */,
 			);
@@ -310,6 +345,7 @@
 				F6F8E26A29CB934900F37E9C /* UserLoginResponse.swift in Sources */,
 				F6F14F8A29CBAF47006C86CB /* PlateDetailsViewController.swift in Sources */,
 				3FBF002729CAA0C7007BBCFA /* TableViewCell.swift in Sources */,
+				F6F4D3EC29CC2AA700058B88 /* AddressModel.swift in Sources */,
 				3FBF002D29CAA38C007BBCFA /* RallyData.swift in Sources */,
 				F6F8E25829CB7DD000F37E9C /* ApiResponse.swift in Sources */,
 				F6F14F9529CBD628006C86CB /* CartTableViewDelegate.swift in Sources */,
@@ -323,15 +359,23 @@
 				F6F14F9329CBD019006C86CB /* CartTableViewAdapter.swift in Sources */,
 				3FBF002C29CAA38C007BBCFA /* RallyDataSource.swift in Sources */,
 				284DF3EE29CA4DF800EBFE73 /* LogInViewController.swift in Sources */,
+				F6F4D3E529CC186100058B88 /* OrderItemCell.swift in Sources */,
 				F6F14F9029CBCE54006C86CB /* CartItemCellTableViewCell.swift in Sources */,
+				F6F4D3F129CC2FAC00058B88 /* AddressItemCell.swift in Sources */,
 				F6F8E25629CB7DD000F37E9C /* CartModel.swift in Sources */,
+				F6F4D3F429CC31A200058B88 /* AddressService.swift in Sources */,
 				F6F14F8D29CBB031006C86CB /* HomeTableViewDelegate.swift in Sources */,
+				F6F4D3E229CC137500058B88 /* CheckoutViewController.swift in Sources */,
 				F6F8E26229CB86EC00F37E9C /* CartServices.swift in Sources */,
+				F6F4D3F629CC37F400058B88 /* AddressTableViewAdapter.swift in Sources */,
 				F6F8E25C29CB804E00F37E9C /* HomeTableViewAdapter.swift in Sources */,
+				F6F4D3E829CC1BA700058B88 /* OrderModels.swift in Sources */,
 				F6F8E26629CB8D9F00F37E9C /* ImageLoader.swift in Sources */,
 				284DF3CE29C9FD2200EBFE73 /* SceneDelegate.swift in Sources */,
 				F6F8E25729CB7DD000F37E9C /* MenuModels.swift in Sources */,
 				F6F8E25529CB7DD000F37E9C /* UserModel.swift in Sources */,
+				F6F4D3EA29CC1E1500058B88 /* OrderlistTableViewAdapter.swift in Sources */,
+				F6F4D3F829CC3D8000058B88 /* OrderServices.swift in Sources */,
 				F6F8E26829CB92AA00F37E9C /* UserServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

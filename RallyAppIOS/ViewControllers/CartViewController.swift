@@ -12,6 +12,10 @@ class CartViewController: UIViewController {
     var username = ""
     
     @IBOutlet weak var helloLabel: UILabel!
+    @IBOutlet weak var cartTableView: UITableView!
+    
+    let cartTableViewAdapter = CartTableViewAdapter()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -20,6 +24,15 @@ class CartViewController: UIViewController {
         let defaults = UserDefaults.standard
         username = defaults.string(forKey: "Username")!
         helloLabel.text = "Hello " + username + " 👋"
+        
+        cartTableViewAdapter.tableView = cartTableView
+        
+        cartTableView.register(CartItemCellTableViewCell.nib(), forCellReuseIdentifier: CartItemCellTableViewCell.identifier)
+        
+        cartTableView.delegate = cartTableViewAdapter
+        cartTableView.dataSource = cartTableViewAdapter
+        
+        cartTableViewAdapter.getCartsFromApi(userId: UserAuth.userId!, token: UserAuth.token!)
     }
 
 

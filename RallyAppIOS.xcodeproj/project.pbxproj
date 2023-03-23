@@ -26,6 +26,10 @@
 		F6F14F8829CB9EB8006C86CB /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F14F8729CB9EB8006C86CB /* UserAuth.swift */; };
 		F6F14F8A29CBAF47006C86CB /* PlateDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F14F8929CBAF47006C86CB /* PlateDetailsViewController.swift */; };
 		F6F14F8D29CBB031006C86CB /* HomeTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F14F8C29CBB031006C86CB /* HomeTableViewDelegate.swift */; };
+		F6F14F9029CBCE54006C86CB /* CartItemCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F14F8E29CBCE54006C86CB /* CartItemCellTableViewCell.swift */; };
+		F6F14F9129CBCE54006C86CB /* CartItemCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6F14F8F29CBCE54006C86CB /* CartItemCellTableViewCell.xib */; };
+		F6F14F9329CBD019006C86CB /* CartTableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F14F9229CBD019006C86CB /* CartTableViewAdapter.swift */; };
+		F6F14F9529CBD628006C86CB /* CartTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F14F9429CBD628006C86CB /* CartTableViewDelegate.swift */; };
 		F6F8E25529CB7DD000F37E9C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8E25129CB7DCF00F37E9C /* UserModel.swift */; };
 		F6F8E25629CB7DD000F37E9C /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8E25229CB7DD000F37E9C /* CartModel.swift */; };
 		F6F8E25729CB7DD000F37E9C /* MenuModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8E25329CB7DD000F37E9C /* MenuModels.swift */; };
@@ -60,6 +64,10 @@
 		F6F14F8729CB9EB8006C86CB /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		F6F14F8929CBAF47006C86CB /* PlateDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlateDetailsViewController.swift; sourceTree = "<group>"; };
 		F6F14F8C29CBB031006C86CB /* HomeTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewDelegate.swift; sourceTree = "<group>"; };
+		F6F14F8E29CBCE54006C86CB /* CartItemCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemCellTableViewCell.swift; sourceTree = "<group>"; };
+		F6F14F8F29CBCE54006C86CB /* CartItemCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartItemCellTableViewCell.xib; sourceTree = "<group>"; };
+		F6F14F9229CBD019006C86CB /* CartTableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewAdapter.swift; sourceTree = "<group>"; };
+		F6F14F9429CBD628006C86CB /* CartTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewDelegate.swift; sourceTree = "<group>"; };
 		F6F8E25129CB7DCF00F37E9C /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		F6F8E25229CB7DD000F37E9C /* CartModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
 		F6F8E25329CB7DD000F37E9C /* MenuModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuModels.swift; sourceTree = "<group>"; };
@@ -169,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				F6F14F8C29CBB031006C86CB /* HomeTableViewDelegate.swift */,
+				F6F14F9429CBD628006C86CB /* CartTableViewDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -177,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				F6F8E25B29CB804E00F37E9C /* HomeTableViewAdapter.swift */,
+				F6F14F9229CBD019006C86CB /* CartTableViewAdapter.swift */,
 			);
 			path = Adapters;
 			sourceTree = "<group>";
@@ -186,6 +196,8 @@
 			children = (
 				3FBF002529CAA0C7007BBCFA /* TableViewCell.swift */,
 				3FBF002629CAA0C7007BBCFA /* TableViewCell.xib */,
+				F6F14F8E29CBCE54006C86CB /* CartItemCellTableViewCell.swift */,
+				F6F14F8F29CBCE54006C86CB /* CartItemCellTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -276,6 +288,7 @@
 			files = (
 				284DF3D829C9FD2400EBFE73 /* LaunchScreen.storyboard in Resources */,
 				3FBF002829CAA0C7007BBCFA /* TableViewCell.xib in Resources */,
+				F6F14F9129CBCE54006C86CB /* CartItemCellTableViewCell.xib in Resources */,
 				284DF3EC29CA453200EBFE73 /* fork.png in Resources */,
 				284DF3EA29CA2EA200EBFE73 /* top_banner.png in Resources */,
 				284DF3D329C9FD2200EBFE73 /* Main.storyboard in Resources */,
@@ -296,14 +309,17 @@
 				3FBF002729CAA0C7007BBCFA /* TableViewCell.swift in Sources */,
 				3FBF002D29CAA38C007BBCFA /* RallyData.swift in Sources */,
 				F6F8E25829CB7DD000F37E9C /* ApiResponse.swift in Sources */,
+				F6F14F9529CBD628006C86CB /* CartTableViewDelegate.swift in Sources */,
 				284DF3D029C9FD2200EBFE73 /* HomeViewController.swift in Sources */,
 				F6F14F8829CB9EB8006C86CB /* UserAuth.swift in Sources */,
 				284DF3F629CA868100EBFE73 /* CartViewController.swift in Sources */,
 				F6F8E26329CB86EC00F37E9C /* MenuServices.swift in Sources */,
 				284DF3E129CA21A100EBFE73 /* UserViewController.swift in Sources */,
 				284DF3CC29C9FD2200EBFE73 /* AppDelegate.swift in Sources */,
+				F6F14F9329CBD019006C86CB /* CartTableViewAdapter.swift in Sources */,
 				3FBF002C29CAA38C007BBCFA /* RallyDataSource.swift in Sources */,
 				284DF3EE29CA4DF800EBFE73 /* LogInViewController.swift in Sources */,
+				F6F14F9029CBCE54006C86CB /* CartItemCellTableViewCell.swift in Sources */,
 				F6F8E25629CB7DD000F37E9C /* CartModel.swift in Sources */,
 				F6F14F8D29CBB031006C86CB /* HomeTableViewDelegate.swift in Sources */,
 				F6F8E26229CB86EC00F37E9C /* CartServices.swift in Sources */,

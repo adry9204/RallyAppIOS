@@ -18,6 +18,7 @@ class PlateDetailsViewController: UIViewController {
     @IBOutlet weak var quantityIncreaseButton: UIButton!
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var addToCartButton: UIButton!
+    @IBOutlet weak var productPriceLabel: UILabel!
     
     var menuItem: Menu? = nil
     
@@ -27,6 +28,7 @@ class PlateDetailsViewController: UIViewController {
         if(menuItem != nil){
             productName.text = menuItem?.name
             productDescription.text = menuItem?.description
+            productPriceLabel.text = "$\(menuItem!.price)"
             let imageURL = URL(string: menuItem!.image)!
             ImageLoader.downloadImage(from: imageURL, view: productImage)
         }

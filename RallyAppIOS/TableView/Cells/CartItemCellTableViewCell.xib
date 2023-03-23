@@ -41,15 +41,6 @@
                         <color key="textColor" red="0.95686274510000002" green="0.47843137250000001" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qty: 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIO-aa-Lwe">
-                        <rect key="frame" x="136" y="100" width="71" height="15"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="71" id="FqU-t9-NKK"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="ms7-Th-2RY">
                         <rect key="frame" x="140" y="41" width="240" height="45"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -62,16 +53,25 @@
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qty: 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIO-aa-Lwe">
+                        <rect key="frame" x="140" y="91.666666666666671" width="71" height="20.333333333333329"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="71" id="FqU-t9-NKK"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="J1G-Jk-jJb" secondAttribute="trailing" constant="20" symbolic="YES" id="6Uu-6O-peH"/>
                     <constraint firstItem="0vL-p8-nls" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="8En-mX-HjS"/>
-                    <constraint firstAttribute="bottom" secondItem="XIO-aa-Lwe" secondAttribute="bottom" constant="20" symbolic="YES" id="Gjj-Q4-f0N"/>
+                    <constraint firstAttribute="bottom" secondItem="XIO-aa-Lwe" secondAttribute="bottom" constant="23" id="Gjj-Q4-f0N"/>
                     <constraint firstItem="0vL-p8-nls" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="GuA-Tl-0Uw"/>
                     <constraint firstItem="1Wd-uO-0FV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="Kfp-yz-kvb"/>
                     <constraint firstAttribute="trailing" secondItem="ms7-Th-2RY" secondAttribute="trailing" constant="20" symbolic="YES" id="MgT-TK-y25"/>
                     <constraint firstAttribute="trailing" secondItem="1Wd-uO-0FV" secondAttribute="trailing" constant="20" symbolic="YES" id="PTQ-H7-cIO"/>
-                    <constraint firstItem="XIO-aa-Lwe" firstAttribute="leading" secondItem="0vL-p8-nls" secondAttribute="trailing" constant="13" id="RMs-Lf-4aK"/>
+                    <constraint firstItem="XIO-aa-Lwe" firstAttribute="leading" secondItem="0vL-p8-nls" secondAttribute="trailing" constant="17" id="RMs-Lf-4aK"/>
                     <constraint firstItem="ms7-Th-2RY" firstAttribute="top" secondItem="1Wd-uO-0FV" secondAttribute="bottom" constant="1" id="T7Q-tS-jCO"/>
                     <constraint firstItem="ms7-Th-2RY" firstAttribute="leading" secondItem="0vL-p8-nls" secondAttribute="trailing" constant="17" id="afd-Cl-vbE"/>
                     <constraint firstAttribute="bottom" secondItem="0vL-p8-nls" secondAttribute="bottom" constant="20" symbolic="YES" id="fBn-FJ-FcC"/>

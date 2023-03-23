@@ -23,6 +23,7 @@
 		3FBF002829CAA0C7007BBCFA /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FBF002629CAA0C7007BBCFA /* TableViewCell.xib */; };
 		3FBF002C29CAA38C007BBCFA /* RallyDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF002A29CAA38C007BBCFA /* RallyDataSource.swift */; };
 		3FBF002D29CAA38C007BBCFA /* RallyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF002B29CAA38C007BBCFA /* RallyData.swift */; };
+		F632410629CBE8D5003C0080 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632410529CBE8D5003C0080 /* AlertManager.swift */; };
 		F6F14F8829CB9EB8006C86CB /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F14F8729CB9EB8006C86CB /* UserAuth.swift */; };
 		F6F14F8A29CBAF47006C86CB /* PlateDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F14F8929CBAF47006C86CB /* PlateDetailsViewController.swift */; };
 		F6F14F8D29CBB031006C86CB /* HomeTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F14F8C29CBB031006C86CB /* HomeTableViewDelegate.swift */; };
@@ -61,6 +62,7 @@
 		3FBF002629CAA0C7007BBCFA /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		3FBF002A29CAA38C007BBCFA /* RallyDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RallyDataSource.swift; sourceTree = "<group>"; };
 		3FBF002B29CAA38C007BBCFA /* RallyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RallyData.swift; sourceTree = "<group>"; };
+		F632410529CBE8D5003C0080 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		F6F14F8729CB9EB8006C86CB /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		F6F14F8929CBAF47006C86CB /* PlateDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlateDetailsViewController.swift; sourceTree = "<group>"; };
 		F6F14F8C29CBB031006C86CB /* HomeTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewDelegate.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				F6F8E26529CB8D9F00F37E9C /* ImageLoader.swift */,
+				F632410529CBE8D5003C0080 /* AlertManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				F6F8E25829CB7DD000F37E9C /* ApiResponse.swift in Sources */,
 				F6F14F9529CBD628006C86CB /* CartTableViewDelegate.swift in Sources */,
 				284DF3D029C9FD2200EBFE73 /* HomeViewController.swift in Sources */,
+				F632410629CBE8D5003C0080 /* AlertManager.swift in Sources */,
 				F6F14F8829CB9EB8006C86CB /* UserAuth.swift in Sources */,
 				284DF3F629CA868100EBFE73 /* CartViewController.swift in Sources */,
 				F6F8E26329CB86EC00F37E9C /* MenuServices.swift in Sources */,

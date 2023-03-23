@@ -11,7 +11,7 @@ struct Menu: Decodable {
     let id: Int
     let name, description, price: String
     let image: String
-    let category: Category
+    let category: Category?
 }
 
 struct Category: Decodable {

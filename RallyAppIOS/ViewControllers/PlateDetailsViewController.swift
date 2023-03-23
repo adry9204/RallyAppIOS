@@ -34,7 +34,42 @@ class PlateDetailsViewController: UIViewController {
         }
     }
     
-
+    @IBAction func addToCartPressed(_ sender: Any) {
+       addItemToCart()
+    }
+    
+    func addItemToCart(){
+        let cartServices = CartServices()
+        Task {
+            do{
+                let carts = try await cartServices.addItemToCart(
+                    userId: UserAuth.userId!,
+                    menuId: menuItem!.id,
+                    quantity: Int(quantityLabel.text!) ?? 1,
+                    token: UserAuth.token!
+                )
+                AlertManager.makeAlertWithOkButton(title: "Added to Cart", message: "\(carts[0].menu.name) added to cart", viewController: self){
+                    self.dismiss(animated: true)
+                }
+            }catch {
+                print(error)
+            }
+        }
+    }
+    
+    @IBAction func decreaseButtonPressed(_ sender: Any) {
+        var currentNumber = Int(quantityLabel.text!) ?? 0
+        if(currentNumber > 1){
+            currentNumber -= 1
+        }
+        quantityLabel.text = String(currentNumber)
+    }
+    
+    @IBAction func increaseButtonPressed(_ sender: Any) {
+        var currentNumber = Int(quantityLabel.text!) ?? 0
+        currentNumber += 1
+        quantityLabel.text = String(currentNumber)
+    }
     /*
     // MARK: - Navigation
 

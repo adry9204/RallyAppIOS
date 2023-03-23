@@ -34,6 +34,10 @@ class CartViewController: UIViewController {
         
         cartTableViewAdapter.getCartsFromApi(userId: UserAuth.userId!, token: UserAuth.token!)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        cartTableViewAdapter.getCartsFromApi(userId: UserAuth.userId!, token: UserAuth.token!)
+    }
 
 
 }

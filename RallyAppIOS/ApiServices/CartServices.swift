@@ -72,4 +72,19 @@ class CartServices{
         print(decoded.success, decoded.message, decoded.data)
         return decoded.data
     }
+    
+    func removeItemFromCart(cartId: Int, token: String) async throws -> ApiResponse<CartModel>{
+        let url = URL(string: "http://localhost:8000/api/cart/\(cartId)")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "DELETE"
+
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        let (data, _) = try await URLSession.shared.data(for: request)
+        print(data)
+        let decoded = try JSONDecoder().decode(ApiResponse<CartModel>.self, from: data)
+        print(decoded.success, decoded.message, decoded.data)
+        return decoded
+    }
 }

@@ -70,6 +70,7 @@ class PlateDetailsViewController: UIViewController {
         currentNumber += 1
         quantityLabel.text = String(currentNumber)
     }
+    
     /*
     // MARK: - Navigation
 

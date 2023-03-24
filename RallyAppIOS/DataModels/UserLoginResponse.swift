@@ -17,3 +17,8 @@ struct UserLoginResponse: Decodable {
     }
 }
 
+struct UserResgisterModel: Decodable {
+    let fullName, email, userName: String
+    let verified: Bool
+    let id: Int
+}

@@ -81,8 +81,4 @@ class LogInViewController: UIViewController {
         self.present(dialogMessage, animated: true, completion: nil)
     }
     
-    @IBAction func unwindToLogIn(unwindSegue: UIStoryboardSegue){
-    
-    }
-    
 }

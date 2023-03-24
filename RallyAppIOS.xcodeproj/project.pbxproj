@@ -28,6 +28,8 @@
 		F6C7178B29CD1C8400EDE5FB /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C7178A29CD1C8400EDE5FB /* NotificationManager.swift */; };
 		F6C7178D29CD320F00EDE5FB /* WebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C7178C29CD320F00EDE5FB /* WebSocketManager.swift */; };
 		F6C7179029CD34C000EDE5FB /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = F6C7178F29CD34C000EDE5FB /* SocketIO */; };
+		F6C7179229CD714400EDE5FB /* MapScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C7179129CD714400EDE5FB /* MapScreenViewController.swift */; };
+		F6C7179429CD8B4C00EDE5FB /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C7179329CD8B4C00EDE5FB /* LocationModel.swift */; };
 		F6F14F8829CB9EB8006C86CB /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F14F8729CB9EB8006C86CB /* UserAuth.swift */; };
 		F6F14F8A29CBAF47006C86CB /* PlateDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F14F8929CBAF47006C86CB /* PlateDetailsViewController.swift */; };
 		F6F14F8D29CBB031006C86CB /* HomeTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F14F8C29CBB031006C86CB /* HomeTableViewDelegate.swift */; };
@@ -88,6 +90,8 @@
 		F6C7178829CD138A00EDE5FB /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
 		F6C7178A29CD1C8400EDE5FB /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		F6C7178C29CD320F00EDE5FB /* WebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
+		F6C7179129CD714400EDE5FB /* MapScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenViewController.swift; sourceTree = "<group>"; };
+		F6C7179329CD8B4C00EDE5FB /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		F6F14F8729CB9EB8006C86CB /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		F6F14F8929CBAF47006C86CB /* PlateDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlateDetailsViewController.swift; sourceTree = "<group>"; };
 		F6F14F8C29CBB031006C86CB /* HomeTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewDelegate.swift; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 				F6F4D3E129CC137500058B88 /* CheckoutViewController.swift */,
 				F6F4D3F929CC532400058B88 /* AddAddressViewController.swift */,
 				F6C7178829CD138A00EDE5FB /* OrderDetailsViewController.swift */,
+				F6C7179129CD714400EDE5FB /* MapScreenViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -221,6 +226,7 @@
 				F6F4D3E729CC1BA700058B88 /* OrderModels.swift */,
 				F6F4D3EB29CC2AA700058B88 /* AddressModel.swift */,
 				F6F4D3FE29CC880600058B88 /* PaymentModel.swift */,
+				F6C7179329CD8B4C00EDE5FB /* LocationModel.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -389,6 +395,7 @@
 				F6F4D3FF29CC880600058B88 /* PaymentModel.swift in Sources */,
 				F6F4D3EC29CC2AA700058B88 /* AddressModel.swift in Sources */,
 				F6F4D40229CD029000058B88 /* OrderTableCell.swift in Sources */,
+				F6C7179229CD714400EDE5FB /* MapScreenViewController.swift in Sources */,
 				3FBF002D29CAA38C007BBCFA /* RallyData.swift in Sources */,
 				F6F8E25829CB7DD000F37E9C /* ApiResponse.swift in Sources */,
 				F6F14F9529CBD628006C86CB /* CartTableViewDelegate.swift in Sources */,
@@ -406,6 +413,7 @@
 				F6F14F9329CBD019006C86CB /* CartTableViewAdapter.swift in Sources */,
 				3FBF002C29CAA38C007BBCFA /* RallyDataSource.swift in Sources */,
 				284DF3EE29CA4DF800EBFE73 /* LogInViewController.swift in Sources */,
+				F6C7179429CD8B4C00EDE5FB /* LocationModel.swift in Sources */,
 				F6F4D3E529CC186100058B88 /* OrderItemCell.swift in Sources */,
 				F6F14F9029CBCE54006C86CB /* CartItemCellTableViewCell.swift in Sources */,
 				F6F4D3F129CC2FAC00058B88 /* AddressItemCell.swift in Sources */,

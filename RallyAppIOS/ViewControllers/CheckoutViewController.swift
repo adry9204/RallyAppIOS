@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import StripeCore
+import StripePaymentSheet
 
 class CheckoutViewController: UIViewController, CartTableViewDelegate {
     
@@ -19,13 +21,31 @@ class CheckoutViewController: UIViewController, CartTableViewDelegate {
     @IBOutlet weak var checkOutOrderListTableView: UITableView!
     @IBOutlet weak var checkOutAddressTableView: UITableView!
     
-    let order: Welcome? = nil
+    @IBOutlet weak var grandTotalLabel: UILabel!
+    @IBOutlet weak var taxPriceLabel: UILabel!
+    @IBOutlet weak var totalPriceLabel: UILabel!
+    
+    var paymentSheet: PaymentSheet?
+    
+    var order: Order<Int>? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpOrderListTableView()
         setUpAddressTableView()
-        setDataOnTableView()
+        setUpPriceLabels()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        addressTableViewAdapter.getUsersAddressFromApi()
+    }
+    
+    private func setUpPriceLabels(){
+        if(order != nil){
+            totalPriceLabel.text = "$\(order!.beforeTaxPrice)"
+            taxPriceLabel.text = "$\(order!.taxPrice)"
+            grandTotalLabel.text = "$\(order!.totalPrice)"
+        }
     }
     
     private func setUpOrderListTableView(){
@@ -36,6 +56,9 @@ class CheckoutViewController: UIViewController, CartTableViewDelegate {
             OrderItemCell.nib(),
             forCellReuseIdentifier: OrderItemCell.identifier
         )
+        if(order != nil){
+            orderListTableViewAdapter.setData(data: order!.orderDetails)
+        }
     }
     
     private func setUpAddressTableView(){
@@ -50,32 +73,95 @@ class CheckoutViewController: UIViewController, CartTableViewDelegate {
         )
     }
     
-    func setDataOnTableView(){
-        
-        var data =  Array<OrderDetail>()
-        for _ in 0...10{
-            let category = Category(id: 1, category: "food")
-            let menu = Menu(id: 2, name: "Menu Item", description: "desc", price: "10", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80", category: category)
-            let orderDetails = OrderDetail(id: 1, price: "20", quantity: 3, menu: menu)
-            data.append(orderDetails)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "goToAddAddress"){
+            let destinationVC = segue.destination as? AddAddressViewController
+            destinationVC?.order = order
         }
-        print(data)
-        orderListTableViewAdapter.setData(data: data)
     }
     
-    func itemSelectedAtIndex(dataAtIndex: CartModel, indexPath: IndexPath) {
+    
+    @IBAction func addAddressPressed(_ sender: Any) {
+        performSegue(withIdentifier: "goToAddAddress", sender: self)
+    }
+    
+
+    func itemSelectedAtIndex(dataAtIndex: CartModel, indexPath: IndexPath){
         print("selected")
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func placeOrderButtonPressed(_ sender: Any) {
+        if(addressTableViewAdapter.selectedAddressId != nil){
+            makePayment(addressId: addressTableViewAdapter.selectedAddressId!)
+        }
     }
-    */
-
+    
+    func makePayment(addressId: Int){
+        
+        let orderService = OrderServices()
+        Task {
+            do{
+                let paymentResponse = try await orderService.makePayment(orderId: order!.id, addressId: addressId, token: UserAuth.token!)
+                
+                if(paymentResponse.success == 1){
+                    let paymentConfigData = paymentResponse.data[0]
+                    STPAPIClient.shared.publishableKey = paymentConfigData.publishableKey
+                    var configuration = PaymentSheet.Configuration()
+                    configuration.merchantDisplayName = "Rally Restaurant"
+                    configuration.customer = .init(id: paymentConfigData.customer, ephemeralKeySecret: paymentConfigData.ephemeralKey)
+                    self.paymentSheet = PaymentSheet(paymentIntentClientSecret: paymentConfigData.paymentIntent, configuration: configuration)
+                    
+                    paymentSheet?.present(from: self) { paymentResult in
+                        // MARK: Handle the payment result
+                        switch paymentResult {
+                        case .completed:
+                            self.placeOrder(orderId: self.order!.id)
+                        case .canceled:
+                            AlertManager.makeAlertWithOkButton(
+                                title: "Issues",
+                                message: "PaymentCanceled",
+                                viewController: self
+                            ){
+                                print("OK Pressed")
+                            }
+                        case .failed(let error):
+                            AlertManager.makeAlertWithOkButton(
+                                title: "Issues",
+                                message: "Payment Failed \(error)",
+                                viewController: self
+                            ){
+                                print("OK Pressed")
+                            }
+                        }
+                    }
+                }else{
+                    AlertManager.makeAlertWithOkButton(
+                        title: "Issues",
+                        message: paymentResponse.message,
+                        viewController: self
+                    ){
+                        print("OK Pressed")
+                    }
+                }
+    
+            }catch {
+                print(error)
+            }
+        }
+    }
+    
+    func placeOrder(orderId: Int){
+        let orderService = OrderServices()
+        Task{
+            do{
+                let response = try await orderService.placeOrder(orderId: orderId, token: UserAuth.token!)
+                if(response.success == 1){
+                    print("Yay")
+                }
+            }catch{
+                print(error)
+            }
+        }
+    }
+    
 }

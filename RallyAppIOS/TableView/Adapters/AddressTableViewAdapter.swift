@@ -56,13 +56,17 @@ class AddressTableViewAdapter: NSObject, UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        setAddressAtIndexSelected(indexPath: indexPath)
+    }
+    
+    func setAddressAtIndexSelected(indexPath: IndexPath){
         if(lastSelectedIndex != nil){
             data[lastSelectedIndex!].selected = false
         }
+        lastSelectedIndex = indexPath.row
         data[indexPath.row].selected = true
         selectedAddressId = data[indexPath.row].id
         tableView.reloadData()
     }
-    
     
 }

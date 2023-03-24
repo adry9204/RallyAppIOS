@@ -156,7 +156,7 @@ class CheckoutViewController: UIViewController, CartTableViewDelegate {
             do{
                 let response = try await orderService.placeOrder(orderId: orderId, token: UserAuth.token!)
                 if(response.success == 1){
-                    print("Yay")
+                    performSegue(withIdentifier: "gotBackToTabBarController", sender: self)
                 }
             }catch{
                 print(error)

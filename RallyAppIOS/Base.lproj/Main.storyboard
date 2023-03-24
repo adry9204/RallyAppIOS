@@ -4,11 +4,43 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Location-->
+        <scene sceneID="mvl-lB-Vfk">
+            <objects>
+                <viewController id="6tR-Yh-3gJ" customClass="MapScreenViewController" customModule="RallyAppIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bqJ-zi-98z">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h3T-Od-bKS">
+                                <rect key="frame" x="0.0" y="65" width="393" height="635"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Qlv-og-sso"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="h3T-Od-bKS" firstAttribute="centerX" secondItem="bqJ-zi-98z" secondAttribute="centerX" id="7eB-zN-mwf"/>
+                            <constraint firstItem="h3T-Od-bKS" firstAttribute="top" secondItem="Qlv-og-sso" secondAttribute="top" constant="65" id="FCf-Pj-W8M"/>
+                            <constraint firstItem="h3T-Od-bKS" firstAttribute="leading" secondItem="Qlv-og-sso" secondAttribute="leading" id="s67-BP-Shh"/>
+                            <constraint firstItem="Qlv-og-sso" firstAttribute="bottom" secondItem="h3T-Od-bKS" secondAttribute="bottom" constant="34" id="udc-15-ADu"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Location" image="map" catalog="system" id="vgA-NN-Nof"/>
+                    <connections>
+                        <outlet property="mapView" destination="h3T-Od-bKS" id="IJ3-Uy-lFJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SNU-fH-9ha" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1045.0381679389313" y="601.4084507042254"/>
+        </scene>
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -469,11 +501,12 @@
                         <outlet property="taxPriceLabel" destination="ulP-Ca-Rce" id="EtO-JO-xxa"/>
                         <outlet property="totalPriceLabel" destination="LOR-B5-sV7" id="9vd-4C-6bQ"/>
                         <segue destination="wZf-JM-UH2" kind="show" identifier="goToAddAddress" id="Evs-uW-Pxb"/>
+                        <segue destination="shd-VB-zn3" kind="show" identifier="gotBackToTabBarController" id="50l-JY-hLR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B5r-Vs-6Bb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="633" y="1492"/>
+            <point key="canvasLocation" x="688" y="1520"/>
         </scene>
         <!--Add Address View Controller-->
         <scene sceneID="Kma-UR-hTu">
@@ -617,7 +650,7 @@
         <!--LogIn-->
         <scene sceneID="m8y-bW-hUf">
             <objects>
-                <viewController id="725-zz-gcX" userLabel="LogIn" customClass="LogInViewController" customModule="RallyAppIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="725-zz-gcX" userLabel="LogIn" customClass="LogInViewController" customModule="RallyAppIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H9s-xo-czP">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -676,7 +709,7 @@
                                             <color key="baseForegroundColor" red="0.19758763909999999" green="0.3193272352" blue="0.54512226580000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="8aA-4z-kgE" kind="show" id="ldc-Qj-vSK"/>
+                                            <segue destination="8aA-4z-kgE" kind="show" id="mEg-e0-LcN"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkM-mr-icc">
@@ -725,6 +758,7 @@
                             <constraint firstItem="0H5-eD-HNV" firstAttribute="trailing" secondItem="8At-VU-WAG" secondAttribute="trailing" id="sMo-9D-Jin"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="6me-wx-BLa"/>
                     <connections>
                         <outlet property="containerView" destination="Lca-hk-N6O" id="Mek-ff-uf9"/>
                         <outlet property="loginButton" destination="zkM-mr-icc" id="AUW-8b-pCw"/>
@@ -816,6 +850,7 @@
                                             <color key="baseBackgroundColor" red="0.19758763909999999" green="0.3193272352" blue="0.54512226580000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
                                         <connections>
+                                            <action selector="signUpClicked:" destination="8aA-4z-kgE" eventType="touchUpInside" id="f9f-wz-XRa"/>
                                             <segue destination="r3C-eQ-EOA" kind="unwind" unwindAction="unwindToLogInUnwindSegue:" id="z0S-Ul-2IN"/>
                                         </connections>
                                     </button>
@@ -851,6 +886,11 @@
                     <navigationItem key="navigationItem" id="saT-X7-dBk"/>
                     <connections>
                         <outlet property="containerView" destination="TTl-IA-p0F" id="OzW-ea-3La"/>
+                        <outlet property="emailInputTextBox" destination="Euf-eH-z5d" id="s5C-qm-fvz"/>
+                        <outlet property="firstNameTexIntput" destination="cut-1T-Iz2" id="QKs-7k-4wI"/>
+                        <outlet property="passwordTextInput" destination="JBr-22-zYU" id="S0D-Mf-GJ5"/>
+                        <outlet property="usernameTextInput" destination="txH-HT-6vY" id="9IR-pQ-7mG"/>
+                        <segue destination="725-zz-gcX" kind="showDetail" identifier="backToLogin" id="lew-wV-ZhK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wts-hw-6FS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1167,6 +1207,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="LjY-lT-GBk"/>
                         <segue destination="0pr-KY-3MW" kind="relationship" relationship="viewControllers" id="kYH-Dk-taS"/>
                         <segue destination="ntG-Eh-N2s" kind="relationship" relationship="viewControllers" id="mGv-H2-RCl"/>
+                        <segue destination="6tR-Yh-3gJ" kind="relationship" relationship="viewControllers" id="Nye-Er-yaz"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W1r-WJ-dnX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1175,6 +1216,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="tN7-8y-OjA"/>
         <segue reference="pKm-2z-OK2"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -1184,6 +1226,7 @@
         <image name="homekit" catalog="system" width="128" height="104"/>
         <image name="lessthan" catalog="system" width="128" height="108"/>
         <image name="list.bullet.clipboard.fill" catalog="system" width="103" height="128"/>
+        <image name="map" catalog="system" width="128" height="112"/>
         <image name="placeholder" width="1200" height="1200"/>
         <image name="top_banner.png" width="775" height="506"/>
         <systemColor name="labelColor">

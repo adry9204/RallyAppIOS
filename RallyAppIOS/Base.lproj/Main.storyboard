@@ -49,7 +49,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="DIK-Cp-VpU" firstAttribute="top" secondItem="VIE-Zf-t2J" secondAttribute="bottom" constant="5" id="HHs-pZ-efe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DIK-Cp-VpU" secondAttribute="bottom" constant="58" id="bCS-aS-o67"/>
@@ -897,7 +897,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uXm-I3-T9h"/>
-                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="uXm-I3-T9h" firstAttribute="bottom" secondItem="7dw-rG-PW9" secondAttribute="bottom" constant="40" id="3oB-ua-Sfh"/>
                             <constraint firstItem="uXm-I3-T9h" firstAttribute="trailing" secondItem="7dw-rG-PW9" secondAttribute="trailing" constant="5" id="4iI-Hn-KcD"/>
@@ -1040,6 +1040,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="BACK">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="aME-Ah-lFb" eventType="touchUpInside" id="dVW-LY-9E6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ana-aS-5iU"/>
@@ -1123,7 +1126,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="prj-fx-LeP"/>
-                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="prj-fx-LeP" firstAttribute="bottom" secondItem="e8l-0U-sbe" secondAttribute="bottom" constant="34" id="4V0-ix-BQJ"/>
                             <constraint firstItem="prj-fx-LeP" firstAttribute="trailing" secondItem="MiJ-GN-o4M" secondAttribute="trailing" id="DQj-7n-S2T"/>
@@ -1157,6 +1160,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.015686274510000001" green="0.17254901959999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.039215686270000001" green="0.20000000000000001" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="LjY-lT-GBk"/>
@@ -1186,9 +1191,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

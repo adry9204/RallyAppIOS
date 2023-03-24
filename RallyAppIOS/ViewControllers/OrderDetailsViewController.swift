@@ -47,6 +47,9 @@ class OrderDetailsViewController: UIViewController {
     }
     
 
+    @IBAction func backButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
     /*
     // MARK: - Navigation
 

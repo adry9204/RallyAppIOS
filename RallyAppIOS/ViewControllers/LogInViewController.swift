@@ -50,6 +50,7 @@ class LogInViewController: UIViewController {
                 if(userLoginResponse.success == 1){
                     UserAuth.userId = userLoginResponse.data[0].userID
                     UserAuth.token = userLoginResponse.data[0].token
+                    WebSocketManager.shared.establishConnection(userId: userLoginResponse.data[0].userID)
                     NotificationManager.shared.displaySimpleNotification(title: "User Loged in", body: "\(userLoginResponse.data[0].userName)")
                     performSegue(withIdentifier: "goToHomeScene", sender: self)
                 }else{

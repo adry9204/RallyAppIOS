@@ -50,6 +50,7 @@ class LogInViewController: UIViewController {
                 if(userLoginResponse.success == 1){
                     UserAuth.userId = userLoginResponse.data[0].userID
                     UserAuth.token = userLoginResponse.data[0].token
+                    NotificationManager.shared.displaySimpleNotification(title: "User Loged in", body: "\(userLoginResponse.data[0].userName)")
                     performSegue(withIdentifier: "goToHomeScene", sender: self)
                 }else{
                     createAlertBox(titlte: "Login Failed", message: "Incorrect Username or Password")

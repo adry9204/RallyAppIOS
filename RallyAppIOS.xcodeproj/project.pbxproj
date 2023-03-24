@@ -26,6 +26,8 @@
 		F632410629CBE8D5003C0080 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632410529CBE8D5003C0080 /* AlertManager.swift */; };
 		F6C7178929CD138A00EDE5FB /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C7178829CD138A00EDE5FB /* OrderDetailsViewController.swift */; };
 		F6C7178B29CD1C8400EDE5FB /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C7178A29CD1C8400EDE5FB /* NotificationManager.swift */; };
+		F6C7178D29CD320F00EDE5FB /* WebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C7178C29CD320F00EDE5FB /* WebSocketManager.swift */; };
+		F6C7179029CD34C000EDE5FB /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = F6C7178F29CD34C000EDE5FB /* SocketIO */; };
 		F6F14F8829CB9EB8006C86CB /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F14F8729CB9EB8006C86CB /* UserAuth.swift */; };
 		F6F14F8A29CBAF47006C86CB /* PlateDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F14F8929CBAF47006C86CB /* PlateDetailsViewController.swift */; };
 		F6F14F8D29CBB031006C86CB /* HomeTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F14F8C29CBB031006C86CB /* HomeTableViewDelegate.swift */; };
@@ -85,6 +87,7 @@
 		F632410529CBE8D5003C0080 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		F6C7178829CD138A00EDE5FB /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
 		F6C7178A29CD1C8400EDE5FB /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		F6C7178C29CD320F00EDE5FB /* WebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
 		F6F14F8729CB9EB8006C86CB /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		F6F14F8929CBAF47006C86CB /* PlateDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlateDetailsViewController.swift; sourceTree = "<group>"; };
 		F6F14F8C29CBB031006C86CB /* HomeTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6F4D3FD29CC86B800058B88 /* StripePaymentSheet in Frameworks */,
+				F6C7179029CD34C000EDE5FB /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +282,7 @@
 				F6F8E26529CB8D9F00F37E9C /* ImageLoader.swift */,
 				F632410529CBE8D5003C0080 /* AlertManager.swift */,
 				F6C7178A29CD1C8400EDE5FB /* NotificationManager.swift */,
+				F6C7178C29CD320F00EDE5FB /* WebSocketManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -308,6 +313,7 @@
 			name = RallyAppIOS;
 			packageProductDependencies = (
 				F6F4D3FC29CC86B800058B88 /* StripePaymentSheet */,
+				F6C7178F29CD34C000EDE5FB /* SocketIO */,
 			);
 			productName = RallyAppIOS;
 			productReference = 284DF3C829C9FD2200EBFE73 /* RallyAppIOS.app */;
@@ -339,6 +345,7 @@
 			mainGroup = 284DF3BF29C9FD2200EBFE73;
 			packageReferences = (
 				F6F4D3FB29CC86B800058B88 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */,
+				F6C7178E29CD34C000EDE5FB /* XCRemoteSwiftPackageReference "socket" */,
 			);
 			productRefGroup = 284DF3C929C9FD2200EBFE73 /* Products */;
 			projectDirPath = "";
@@ -393,6 +400,7 @@
 				F6F8E26329CB86EC00F37E9C /* MenuServices.swift in Sources */,
 				F6C7178B29CD1C8400EDE5FB /* NotificationManager.swift in Sources */,
 				F6F4D40729CD07EB00058B88 /* OrderTableDelegate.swift in Sources */,
+				F6C7178D29CD320F00EDE5FB /* WebSocketManager.swift in Sources */,
 				284DF3E129CA21A100EBFE73 /* UserOrderViewController.swift in Sources */,
 				284DF3CC29C9FD2200EBFE73 /* AppDelegate.swift in Sources */,
 				F6F14F9329CBD019006C86CB /* CartTableViewAdapter.swift in Sources */,
@@ -636,6 +644,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F6C7178E29CD34C000EDE5FB /* XCRemoteSwiftPackageReference "socket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		F6F4D3FB29CC86B800058B88 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/stripe/stripe-ios-spm";
@@ -647,6 +663,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F6C7178F29CD34C000EDE5FB /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F6C7178E29CD34C000EDE5FB /* XCRemoteSwiftPackageReference "socket" */;
+			productName = SocketIO;
+		};
 		F6F4D3FC29CC86B800058B88 /* StripePaymentSheet */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F6F4D3FB29CC86B800058B88 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */;

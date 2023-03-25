@@ -12,6 +12,18 @@ class MapScreenViewController: UIViewController {
     
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var rallyImage: UIImageView!
+    
+    var currentImageIndex = 0
+    
+    let imageNames = [
+        "rally_1",
+        "rally_2",
+        "rally_3",
+        "rally_4",
+        "rally_5",
+        "rally_6"
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,18 +37,26 @@ class MapScreenViewController: UIViewController {
         showLocation.latitude =  43.71500
         mapView.centreToLocation(showLocation, regionRadius: 1000)
         mapView.addAnnotation(rallyLocation)
+        setImageOnImageViewAtIndex(index: currentImageIndex)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func nextImage(_ sender: Any) {
+        if(currentImageIndex < imageNames.count-1){
+            currentImageIndex += 1
+            setImageOnImageViewAtIndex(index: currentImageIndex)
+        }
     }
-    */
+    
+    @IBAction func previousImage(_ sender: Any) {
+        if(currentImageIndex > 0){
+            currentImageIndex -= 1
+            setImageOnImageViewAtIndex(index: currentImageIndex)
+        }
+    }
+    
+    private func setImageOnImageViewAtIndex(index: Int){
+        rallyImage.image = UIImage(named: imageNames[index])
+    }
 
 }
 

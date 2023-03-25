@@ -48,13 +48,15 @@ class PlateDetailsViewController: UIViewController {
                     quantity: Int(quantityLabel.text!) ?? 1,
                     token: UserAuth.token!
                 )
-                AlertManager.makeAlertWithOkButton(title: "Added to Cart", message: "\(carts[0].menu.name) added to cart", viewController: self){
-                    self.dismiss(animated: true)
-                }
+                self.dismiss(animated: true)
             }catch {
                 print(error)
             }
         }
+    }
+    
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true)
     }
     
     @IBAction func decreaseButtonPressed(_ sender: Any) {

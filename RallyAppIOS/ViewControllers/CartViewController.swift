@@ -37,8 +37,19 @@ class CartViewController: UIViewController {
         cartTableViewAdapter.getCartsFromApi(userId: UserAuth.userId!, token: UserAuth.token!)
     }
     
+    
     @IBAction func checkOutButtonClicked(_ sender: Any) {
-       makeOrder()
+        if(!cartTableViewAdapter.data.isEmpty){
+            makeOrder()
+        }else{
+            AlertManager.makeAlertWithOkButton(
+                title: "Unable to Checout",
+                message: "Your cart seems to be empty",
+                viewController: self) {
+                    self.tabBarController?.selectedIndex = 0
+                }
+        }
+       
     }
     
     private func makeOrder(){

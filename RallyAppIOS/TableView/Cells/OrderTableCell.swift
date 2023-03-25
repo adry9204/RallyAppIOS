@@ -28,8 +28,28 @@ class OrderTableCell: UITableViewCell {
     func populateCellWithData(data: Order<User>){
         orderTitle.text = data.orderDetails[0].menu.name
         itemCountLabel.text = makeItemCountLabelFromOrderDetails(orderDetails: data.orderDetails)
-        orderStatusLabel.text = data.status
+        orderStatusLabel.text = makeOrderLabel(status: data.status)
         orterTotalLabel.text = data.totalPrice
+    }
+    
+    func makeOrderLabel(status: String)-> String{
+        let status = OrderStatus(rawValue: status)!
+        var message = ""
+        switch(status){
+            case.pending:
+                message = "pending"
+            case .rejected:
+                message = "rejected"
+            case .preparing:
+                message = "preparing"
+            case OrderStatus.waitingForPickup:
+                message = "waiting for pickup"
+            case OrderStatus.onTheWay:
+                message = "on the way"
+            case .completed :
+                message = "delivered"
+        }
+        return message
     }
     
     func makeItemCountLabelFromOrderDetails(orderDetails: [OrderDetail]) -> String{

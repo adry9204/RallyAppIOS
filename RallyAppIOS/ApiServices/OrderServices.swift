@@ -111,4 +111,39 @@ class OrderServices{
         print(decoded.success, decoded.message, decoded.data)
         return decoded.data
     }
+    
+    func cancelOrder(
+        orderId: Int,
+        token: String,
+        completionHandler: @escaping (_ response: ApiResponse<Order<User>>) -> Void
+    ){
+        let url = URL(string: "http://localhost:8000/api/orders/\(orderId)")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "DELETE"
+        
+        // Add the request headers
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: request){ (data, response, error) in
+            do{
+                if let _ = error {
+                    print("RegisterFailed")
+                    return
+                }
+                guard let data = data else {
+                    print("Api call failed")
+                    return
+                }
+                let decoded = try JSONDecoder().decode(ApiResponse<Order<User>>.self, from: data)
+                completionHandler(decoded)
+            }catch{
+                print(error)
+            }
+        }
+        
+        task.resume()
+    }
 }

@@ -93,6 +93,12 @@ class CheckoutViewController: UIViewController, CartTableViewDelegate {
     @IBAction func placeOrderButtonPressed(_ sender: Any) {
         if(addressTableViewAdapter.selectedAddressId != nil){
             makePayment(addressId: addressTableViewAdapter.selectedAddressId!)
+        }else{
+            AlertManager.makeAlertWithOkButton(
+                title: "Missing field",
+                message: "Please select an address",
+                viewController: self
+            ){}
         }
     }
     
@@ -163,5 +169,28 @@ class CheckoutViewController: UIViewController, CartTableViewDelegate {
             }
         }
     }
+    
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        let orderServices = OrderServices()
+        print("canecel")
+        orderServices.cancelOrder(orderId: order!.id, token: UserAuth.token!){ response in
+            if(response.success == 1){
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true)
+                }
+            }else{
+                DispatchQueue.main.async {
+                    AlertManager.makeAlertWithOkButton(
+                        title: "Isuue canceling Order",
+                        message: response.message,
+                        viewController: self
+                    ){
+                        print("Ok Pressed")
+                    }
+                }
+            }
+        }
+    }
+    
     
 }

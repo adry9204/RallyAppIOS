@@ -40,17 +40,25 @@ class PlateDetailsViewController: UIViewController {
     
     func addItemToCart(){
         let cartServices = CartServices()
-        Task {
-            do{
-                let carts = try await cartServices.addItemToCart(
-                    userId: UserAuth.userId!,
-                    menuId: menuItem!.id,
-                    quantity: Int(quantityLabel.text!) ?? 1,
-                    token: UserAuth.token!
-                )
+        cartServices.addItemToCart(
+            userId: UserAuth.userId!,
+            menuId: menuItem!.id,
+            quantity: Int(quantityLabel.text!) ?? 1,
+            token: UserAuth.token!
+        ){ response in
+            
+            if(response.success == 0){
+                DispatchQueue.main.async {
+                    AlertManager.makeAlertWithOkButton(
+                        title: "Failed",
+                        message: response.message,
+                        viewController: self
+                    ){}
+                }
+                return
+            }
+            DispatchQueue.main.async {
                 self.dismiss(animated: true)
-            }catch {
-                print(error)
             }
         }
     }

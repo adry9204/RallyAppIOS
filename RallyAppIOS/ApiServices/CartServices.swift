@@ -9,10 +9,16 @@ import Foundation
 
 class CartServices{
     
-    func addItemToCart(userId: Int, menuId: Int, quantity: Int, token: String) async throws -> [CartModel] {
+    func addItemToCart(
+        userId: Int,
+        menuId: Int,
+        quantity: Int,
+        token: String,
+        completetionHandler: @escaping(_ response: ApiResponse<CartModel>) -> Void
+    ) {
         
         let url = URL(string: "http://localhost:8000/api/cart/")
-        
+        let session = URLSession.shared
 
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
@@ -23,13 +29,15 @@ class CartServices{
             "menuId": menuId,
             "quantity": quantity
         ]
-
-        // Serialize the dictionary to JSON data
-        let jsonData = try JSONSerialization.data(withJSONObject: params, options: [])
-
-        // Set the request body data
-        request.httpBody = jsonData
-
+        
+        do{
+            // Serialize the dictionary to JSON data
+            let jsonData = try JSONSerialization.data(withJSONObject: params, options: [])
+            request.httpBody = jsonData
+        }catch{
+            print(error)
+            return
+        }
         
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
 
@@ -37,23 +45,24 @@ class CartServices{
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         print(request)
-        let (data, _) = try await URLSession.shared.data(for: request)
-        let decoded = try JSONDecoder().decode(ApiResponse<CartModel>.self, from: data)
         
-        return decoded.data
-//        // Create a URLSessionDataTask to handle the request
-//        let task = session.dataTask(with: request) { data, response, error in
-//            if let error = error {
-//                print("Error: \(error.localizedDescription)")
-//                return
-//            }
-//            guard let data = data else { return }
-//            // Handle the response data
-//            print(String(data: data, encoding: .utf8)!)
-//        }
-//
-//        // Start the task
-//        task.resume()
+        let task = session.dataTask(with: request){ (data, response, error) in
+            do{
+                if let _ = error {
+                    print("RegisterFailed")
+                    return
+                }
+                guard let data = data else {
+                    print("Api call failed")
+                    return
+                }
+                let decoded = try JSONDecoder().decode(ApiResponse<CartModel>.self, from: data)
+                completetionHandler(decoded)
+            }catch{
+                print(error)
+            }
+        }
+        task.resume()
     }
     
     func getCartFromTheApi(userId: Int, token: String) async throws -> [CartModel]{

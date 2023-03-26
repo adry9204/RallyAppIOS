@@ -9,4 +9,5 @@ import Foundation
 
 protocol HomeTableViewDelegate: AnyObject{
     func tableItemSelected(dataAtCell: Menu, indexPath: IndexPath)
+    func makeAlert(title: String, message: String)
 }

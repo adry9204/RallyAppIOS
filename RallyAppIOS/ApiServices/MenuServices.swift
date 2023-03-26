@@ -8,13 +8,30 @@
 import Foundation
 
 class MenuServices {
-    func getMenuFromTheApi() async throws -> [Menu]{
+    
+    func getMenuFromTheApi(
+        completetionHandler: @escaping (_ response: ApiResponse<Menu>) -> Void
+    ){
         let url = URL(string: "http://localhost:8000/api/menu")
         
-        let (data, _) = try await URLSession.shared.data(from: url!)
+        let session = URLSession.shared
         
-        let decoded = try JSONDecoder().decode(ApiResponse<Menu>.self, from: data)
-        
-        return decoded.data
+        let task = session.dataTask(with: url!){ (data, response, error) in
+            do{
+                if let _ = error {
+                    print("RegisterFailed")
+                    return
+                }
+                guard let data = data else {
+                    print("Api call failed")
+                    return
+                }
+                let decoded = try JSONDecoder().decode(ApiResponse<Menu>.self, from: data)
+                completetionHandler(decoded)
+            }catch{
+                print(error)
+            }
+        }
+        task.resume()
     }
 }

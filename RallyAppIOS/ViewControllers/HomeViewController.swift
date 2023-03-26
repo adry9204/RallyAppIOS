@@ -54,6 +54,14 @@ class HomeViewController: UIViewController, HomeTableViewDelegate{
         performSegue(withIdentifier: PlateDetailsViewController.segueIdentifier, sender: self)
     }
     
+    func makeAlert(title: String, message: String) {
+        AlertManager.makeAlertWithOkButton(
+            title: title,
+            message: message,
+            viewController: self
+        ){}
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == PlateDetailsViewController.segueIdentifier {
             let destinationVC = segue.destination as? PlateDetailsViewController

@@ -30,16 +30,19 @@ class AddressTableViewAdapter: NSObject, UITableViewDelegate, UITableViewDataSou
     
     func getUsersAddressFromApi(){
         let addressService = AddressService()
-        Task {
-            do{
-                let addresses = try await addressService.getUsersAddress(userId: UserAuth.userId!, token: UserAuth.token!)
-                data = addresses
-                tableView.reloadData()
-            }catch {
-                print(error)
+        addressService.getUsersAddress(
+            userId: UserAuth.userId!,
+            token: UserAuth.token!
+        ){ response in
+            if(response.success == 1){
+                self.data = response.data
+                DispatchQueue.main.async{
+                    self.tableView.reloadData()
+                }
             }
         }
     }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count

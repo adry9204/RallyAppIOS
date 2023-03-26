@@ -24,6 +24,8 @@
 		3FBF002C29CAA38C007BBCFA /* RallyDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF002A29CAA38C007BBCFA /* RallyDataSource.swift */; };
 		3FBF002D29CAA38C007BBCFA /* RallyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF002B29CAA38C007BBCFA /* RallyData.swift */; };
 		F615612729CFC92200E5FA17 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F615612629CFC92200E5FA17 /* UIColorExtension.swift */; };
+		F615612929CFFC7200E5FA17 /* ServerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F615612829CFFC7200E5FA17 /* ServerConfig.swift */; };
+		F615612B29D00C0600E5FA17 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F615612A29D00C0600E5FA17 /* RequestBuilder.swift */; };
 		F632410629CBE8D5003C0080 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632410529CBE8D5003C0080 /* AlertManager.swift */; };
 		F6C7178929CD138A00EDE5FB /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C7178829CD138A00EDE5FB /* OrderDetailsViewController.swift */; };
 		F6C7178B29CD1C8400EDE5FB /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C7178A29CD1C8400EDE5FB /* NotificationManager.swift */; };
@@ -88,6 +90,8 @@
 		3FBF002A29CAA38C007BBCFA /* RallyDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RallyDataSource.swift; sourceTree = "<group>"; };
 		3FBF002B29CAA38C007BBCFA /* RallyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RallyData.swift; sourceTree = "<group>"; };
 		F615612629CFC92200E5FA17 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		F615612829CFFC7200E5FA17 /* ServerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConfig.swift; sourceTree = "<group>"; };
+		F615612A29D00C0600E5FA17 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 		F632410529CBE8D5003C0080 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		F6C7178829CD138A00EDE5FB /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
 		F6C7178A29CD1C8400EDE5FB /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
@@ -280,6 +284,7 @@
 				F6F8E26729CB92AA00F37E9C /* UserServices.swift */,
 				F6F4D3F329CC31A200058B88 /* AddressService.swift */,
 				F6F4D3F729CC3D8000058B88 /* OrderServices.swift */,
+				F615612829CFFC7200E5FA17 /* ServerConfig.swift */,
 			);
 			path = ApiServices;
 			sourceTree = "<group>";
@@ -292,6 +297,7 @@
 				F6C7178A29CD1C8400EDE5FB /* NotificationManager.swift */,
 				F6C7178C29CD320F00EDE5FB /* WebSocketManager.swift */,
 				F615612629CFC92200E5FA17 /* UIColorExtension.swift */,
+				F615612A29D00C0600E5FA17 /* RequestBuilder.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -400,9 +406,11 @@
 				F6F4D40229CD029000058B88 /* OrderTableCell.swift in Sources */,
 				F6C7179229CD714400EDE5FB /* MapScreenViewController.swift in Sources */,
 				3FBF002D29CAA38C007BBCFA /* RallyData.swift in Sources */,
+				F615612929CFFC7200E5FA17 /* ServerConfig.swift in Sources */,
 				F6F8E25829CB7DD000F37E9C /* ApiResponse.swift in Sources */,
 				F6F14F9529CBD628006C86CB /* CartTableViewDelegate.swift in Sources */,
 				F6F4D3FA29CC532400058B88 /* AddAddressViewController.swift in Sources */,
+				F615612B29D00C0600E5FA17 /* RequestBuilder.swift in Sources */,
 				284DF3D029C9FD2200EBFE73 /* HomeViewController.swift in Sources */,
 				F632410629CBE8D5003C0080 /* AlertManager.swift in Sources */,
 				F6F14F8829CB9EB8006C86CB /* UserAuth.swift in Sources */,

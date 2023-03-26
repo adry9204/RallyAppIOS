@@ -9,21 +9,40 @@ import Foundation
 
 class AddressService{
     
-    func getUsersAddress(userId: Int, token: String) async throws -> [Address]{
-        let url = URL(string: "http://localhost:8000/api/address/user/\(userId)")
-        var request = URLRequest(url: url!)
-        request.httpMethod = "GET"
-        print(token, userId)
-        print(request)
-        // Add the request headers
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+    func getUsersAddress(
+        userId: Int,
+        token: String,
+        completionHandler: @escaping(_ response: ApiResponse<Address>) -> Void
+    ){
+        let url = ServerConfig.makeUrl(endpoint: "/api/address/user/\(userId)")
+        let request = RequestBuilder(url: url)
+            .setHttpMethod(httpMethod: .GET)
+            .setContentTypeJson()
+            .addToken(token: token)
+            .build()
         
-        let (data, _) = try await URLSession.shared.data(for: request)
-        print(data)
-        let decoded = try JSONDecoder().decode(ApiResponse<Address>.self, from: data)
-        print(decoded.success, decoded.message, decoded.data)
-        return decoded.data
+        if(request == nil){
+            return
+        }
+        
+        let session = URLSession.shared
+        let task = session.dataTask(with: request!){(data, response, error) in
+            do{
+                if let _ = error {
+                    print("RegisterFailed")
+                    return
+                }
+                guard let data = data else {
+                    print("Api call failed")
+                    return
+                }
+                let decoded = try JSONDecoder().decode(ApiResponse<Address>.self, from: data)
+                completionHandler(decoded)
+            }catch{
+                print(error)
+            }
+        }
+        task.resume()
     }
     
     func addNewAddressForUser(
@@ -34,42 +53,45 @@ class AddressService{
         line2: String,
         country: String,
         province: String,
-        postalCode: String
-    ) async throws -> ApiResponse<Address>{
+        postalCode: String,
+        completionHandler: @escaping(_ response: ApiResponse<Address>) -> Void
+    ){
         
-        let url = URL(string: "http://localhost:8000/api/address/")
+        let url = ServerConfig.makeUrl(endpoint: "/api/address/")
+        let request = RequestBuilder(url: url)
+            .setHttpMethod(httpMethod: .POST)
+            .addParams(key: "userId", value: userId)
+            .addParams(key: "name", value: name)
+            .addParams(key: "line1", value: line1)
+            .addParams(key: "line2", value: line2)
+            .addParams(key: "country", value: country)
+            .addParams(key: "province", value: province)
+            .addParams(key: "postalCode", value: postalCode)
+            .addToken(token: token)
+            .setContentTypeJson()
+            .build()
         
-
-        var request = URLRequest(url: url!)
-        request.httpMethod = "POST"
-
-        // Create a dictionary to hold the request body data
-        let params: [String: Any] = [
-            "userId": userId,
-            "name": name,
-            "line1": line1,
-            "line2": line2,
-            "country": country,
-            "province": province,
-            "postalCode": postalCode
-        ]
-
-        // Serialize the dictionary to JSON data
-        let jsonData = try JSONSerialization.data(withJSONObject: params, options: [])
-
-        // Set the request body data
-        request.httpBody = jsonData
-
+        if(request == nil){
+            return
+        }
         
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-
-        // Add the request headers
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        print(request)
-        let (data, _) = try await URLSession.shared.data(for: request)
-        let decoded = try JSONDecoder().decode(ApiResponse<Address>.self, from: data)
-        
-        return decoded
+        let session = URLSession.shared
+        let task = session.dataTask(with: request!){(data, response, error) in
+            do{
+                if let _ = error {
+                    print("RegisterFailed")
+                    return
+                }
+                guard let data = data else {
+                    print("Api call failed")
+                    return
+                }
+                let decoded = try JSONDecoder().decode(ApiResponse<Address>.self, from: data)
+                completionHandler(decoded)
+            }catch{
+                print(error)
+            }
+        }
+        task.resume()
     }
 }

@@ -9,47 +9,41 @@ import Foundation
 
 class UserServices{
     
-    func loginUser(username: String, password: String) async throws -> ApiResponse<UserLoginResponse> {
+    func loginUser(
+        username: String,
+        password: String,
+        completionHandler: @escaping(_ response: ApiResponse<UserLoginResponse>) -> Void
+    ){
         
-        let url = URL(string: "http://localhost:8000/api/users/login")
-        
-
-        var request = URLRequest(url: url!)
-        request.httpMethod = "POST"
-
-        // Create a dictionary to hold the request body data
-        let params: [String: Any] = [
-            "userName": username,
-            "password": password
-        ]
-
-        // Serialize the dictionary to JSON data
-        let jsonData = try JSONSerialization.data(withJSONObject: params, options: [])
-
-        // Set the request body data
-        request.httpBody = jsonData
-
-
-        // Add the request headers
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        let (data, _) = try await URLSession.shared.data(for: request)
-        let decoded = try JSONDecoder().decode(ApiResponse<UserLoginResponse>.self, from: data)
-        
-        return decoded
-//        // Create a URLSessionDataTask to handle the request
-//        let task = session.dataTask(with: request) { data, response, error in
-//            if let error = error {
-//                print("Error: \(error.localizedDescription)")
-//                return
-//            }
-//            guard let data = data else { return }
-//            // Handle the response data
-//            print(String(data: data, encoding: .utf8)!)
-//        }
-//
-//        // Start the task
-//        task.resume()
+        let url = ServerConfig.makeUrl(endpoint: "/api/users/login")
+        let request = RequestBuilder(url: url)
+            .setHttpMethod(httpMethod: .POST)
+            .addParams(key: "userName", value: username)
+            .addParams(key: "password", value: password)
+            .setContentTypeJson()
+            .build()
+            
+        if(request == nil){
+            return
+        }
+        let session = URLSession.shared
+        let task = session.dataTask(with: request!){(data, response, error) in
+            do{
+                if let _ = error {
+                    print("RegisterFailed")
+                    return
+                }
+                guard let data = data else {
+                    print("Api call failed")
+                    return
+                }
+                let decoded = try JSONDecoder().decode(ApiResponse<UserLoginResponse>.self, from: data)
+                completionHandler(decoded)
+            }catch{
+                print(error)
+            }
+        }
+        task.resume()
     }
     
     func registerUser(
@@ -60,32 +54,22 @@ class UserServices{
         completionHandler: @escaping(_ response:ApiResponse<UserResgisterModel>)->Void
     ) {
         
-        let url = URL(string: "http://localhost:8000/api/users/register")
+        let url = ServerConfig.makeUrl(endpoint: "/api/users/register")
+        let request = RequestBuilder(url: url)
+            .setHttpMethod(httpMethod: .POST)
+            .addParams(key: "fullName", value: fullName)
+            .addParams(key: "userName", value: username)
+            .addParams(key: "email", value: email)
+            .addParams(key: "password", value: password)
+            .setContentTypeJson()
+            .build()
         
-        let session = URLSession.shared
-        
-        var request = URLRequest(url: url!)
-        request.httpMethod = "POST"
-
-        // Create a dictionary to hold the request body data
-        let params: [String: Any] = [
-            "fullName" : fullName,
-            "userName" : username,
-            "email" : email,
-            "password" : password
-        ]
-        
-        do{
-            // Serialize the dictionary to JSON data
-            let jsonData = try JSONSerialization.data(withJSONObject: params, options: [])
-            request.httpBody = jsonData
-        }catch{
-            print("invalid json")
+        if(request == nil){
+            return
         }
         
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        let task =  session.dataTask(with: request) { (data, response, error) in
+        let session = URLSession.shared
+        let task =  session.dataTask(with: request!) { (data, response, error) in
             do{
                 if let _ = error {
                     print("RegisterFailed")

@@ -72,36 +72,33 @@ class AddAddressViewController: UIViewController {
     
     func saveAddress(){
         let addressService = AddressService()
-        Task {
-            do{
-                let addressResponse = try await addressService.addNewAddressForUser(
-                    userId: UserAuth.userId!,
-                    token: UserAuth.token!,
-                    name: addressName.text!,
-                    line1: addressLine1.text!,
-                    line2: addressLine2.text!,
-                    country: addressCountry.text!,
-                    province: addressProvince.text!,
-                    postalCode: addressPostalCode.text!
-                )
-                
-                if(addressResponse.success == 1){
-                    performSegue(withIdentifier: "goBackToCheckOutScreen", sender: self)
-                }else{
+        addressService.addNewAddressForUser(
+            userId: UserAuth.userId!,
+            token: UserAuth.token!,
+            name: addressName.text!,
+            line1: addressLine1.text!,
+            line2: addressLine2.text!,
+            country: addressCountry.text!,
+            province: addressProvince.text!,
+            postalCode: addressPostalCode.text!
+        ){ addressResponse in
+            
+            if(addressResponse.success == 1){
+                DispatchQueue.main.async{
+                    self.performSegue(withIdentifier: "goBackToCheckOutScreen", sender: self)
+                }
+            }else{
+                DispatchQueue.main.async{
                     AlertManager.makeAlertWithOkButton(
                         title: "Issues",
                         message: addressResponse.message,
                         viewController: self
-                    ){
-                        print("OK Pressed")
-                    }
+                    ){}
                 }
-    
-            }catch {
-                print(error)
             }
         }
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "goBackToCheckOutScreen"){
@@ -110,14 +107,4 @@ class AddAddressViewController: UIViewController {
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

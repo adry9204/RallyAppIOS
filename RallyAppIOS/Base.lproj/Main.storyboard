@@ -398,7 +398,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="nHe-S9-JjF" customClass="CheckoutViewController" customModule="RallyAppIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hPT-SW-ouC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="1340"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GmK-fy-3BL">

@@ -12,11 +12,10 @@ class MenuServices {
     func getMenuFromTheApi(
         completetionHandler: @escaping (_ response: ApiResponse<Menu>) -> Void
     ){
-        let url = URL(string: "http://localhost:8000/api/menu")
-        
+        let url = ServerConfig.makeUrl(endpoint: "/api/menu")
         let session = URLSession.shared
         
-        let task = session.dataTask(with: url!){ (data, response, error) in
+        let task = session.dataTask(with: url){ (data, response, error) in
             do{
                 if let _ = error {
                     print("RegisterFailed")

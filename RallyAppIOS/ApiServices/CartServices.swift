@@ -19,34 +19,22 @@ class CartServices{
         
         let url = URL(string: "http://localhost:8000/api/cart/")
         let session = URLSession.shared
-
-        var request = URLRequest(url: url!)
-        request.httpMethod = "POST"
-
-        // Create a dictionary to hold the request body data
-        let params: [String: Any] = [
-            "userId": userId,
-            "menuId": menuId,
-            "quantity": quantity
-        ]
         
-        do{
-            // Serialize the dictionary to JSON data
-            let jsonData = try JSONSerialization.data(withJSONObject: params, options: [])
-            request.httpBody = jsonData
-        }catch{
-            print(error)
+        let request = RequestBuilder(url: url!)
+            .setHttpMethod(httpMethod: .POST)
+            .addParams(key: "userId", value: userId)
+            .addParams(key: "menuId", value: menuId)
+            .addParams(key: "quantity", value: quantity)
+            .addToken(token: UserAuth.token!)
+            .setContentTypeJson()
+            .build()
+        
+        print(request!)
+        if(request == nil){
             return
         }
         
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-
-        // Add the request headers
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        print(request)
-        
-        let task = session.dataTask(with: request){ (data, response, error) in
+        let task = session.dataTask(with: request!){ (data, response, error) in
             do{
                 if let _ = error {
                     print("RegisterFailed")
@@ -65,35 +53,76 @@ class CartServices{
         task.resume()
     }
     
-    func getCartFromTheApi(userId: Int, token: String) async throws -> [CartModel]{
-        let url = URL(string: "http://localhost:8000/api/cart/user/\(userId)")
-        var request = URLRequest(url: url!)
-        request.httpMethod = "GET"
-        print(token, userId)
-        print(request)
-        // Add the request headers
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+    func getCartFromTheApi(
+        userId: Int,
+        token: String,
+        completionHandler: @escaping(_ response: ApiResponse<CartModel>) -> Void
+    ){
+        let url = ServerConfig.makeUrl(endpoint: "/api/cart/user/\(userId)")
+        let session = URLSession.shared
+        let request = RequestBuilder(url: url)
+            .setHttpMethod(httpMethod: .GET)
+            .setContentTypeJson()
+            .addToken(token: UserAuth.token!)
+            .build()
         
-        let (data, _) = try await URLSession.shared.data(for: request)
-        print(data)
-        let decoded = try JSONDecoder().decode(ApiResponse<CartModel>.self, from: data)
-        print(decoded.success, decoded.message, decoded.data)
-        return decoded.data
+        if(request == nil){
+            return
+        }
+        
+        let task = session.dataTask(with: request!){ (data, response, error) in
+            do{
+                if let _ = error{
+                    print("failed")
+                    return
+                }
+                guard let data = data else {
+                    print("Api call failed")
+                    return
+                }
+                let decoded = try JSONDecoder().decode(ApiResponse<CartModel>.self, from: data)
+                completionHandler(decoded)
+            }catch{
+                print(error)
+            }
+        }
+        task.resume()
     }
     
-    func removeItemFromCart(cartId: Int, token: String) async throws -> ApiResponse<CartModel>{
-        let url = URL(string: "http://localhost:8000/api/cart/\(cartId)")
-        var request = URLRequest(url: url!)
-        request.httpMethod = "DELETE"
-
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+    func removeItemFromCart(
+        cartId: Int,
+        token: String,
+        completionHandler: @escaping(_ response: ApiResponse<CartModel>) -> Void
+    ){
+        let url = ServerConfig.makeUrl(endpoint: "/api/cart/\(cartId)")
+        let session = URLSession.shared
         
-        let (data, _) = try await URLSession.shared.data(for: request)
-        print(data)
-        let decoded = try JSONDecoder().decode(ApiResponse<CartModel>.self, from: data)
-        print(decoded.success, decoded.message, decoded.data)
-        return decoded
+        let request = RequestBuilder(url: url)
+            .setHttpMethod(httpMethod: .DELETE)
+            .setContentTypeJson()
+            .addToken(token: UserAuth.token!)
+            .build()
+        
+        if(request == nil){
+            return
+        }
+        
+        let task = session.dataTask(with: request!){ (data, response, error) in
+            do{
+                if let _ = error{
+                    print("failed")
+                    return
+                }
+                guard let data = data else {
+                    print("Api call failed")
+                    return
+                }
+                let decoded = try JSONDecoder().decode(ApiResponse<CartModel>.self, from: data)
+                completionHandler(decoded)
+            }catch{
+                print(error)
+            }
+        }
+        task.resume()
     }
 }

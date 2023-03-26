@@ -23,14 +23,14 @@ class CartTableViewAdapter: NSObject, UITableViewDelegate, UITableViewDataSource
     
     func getCartsFromApi(userId: Int, token: String){
         let cartService = CartServices()
-        Task {
-            do{
-                let carts = try await cartService.getCartFromTheApi(userId: userId, token: token)
-                data = carts
-                tableView.reloadData()
-            }catch {
-                print(error)
+        cartService.getCartFromTheApi(userId: UserAuth.userId!, token: UserAuth.token!){response in
+            if(response.success == 1){
+                self.data = response.data
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }
+            
         }
     }
     
@@ -93,12 +93,12 @@ class CartTableViewAdapter: NSObject, UITableViewDelegate, UITableViewDataSource
     
     func deleteCartItem(cartId: Int, callback: @escaping(_ apiResponse: ApiResponse<CartModel>) -> Void){
         let cartService = CartServices()
-        Task {
-            do{
-                let apiResponse = try await cartService.removeItemFromCart(cartId: cartId, token: UserAuth.token!)
-                callback(apiResponse)
-            }catch {
-                print(error)
+        cartService.removeItemFromCart(
+            cartId: cartId,
+            token: UserAuth.token!
+        ){ response in
+            DispatchQueue.main.async {
+                callback(response)
             }
         }
     }

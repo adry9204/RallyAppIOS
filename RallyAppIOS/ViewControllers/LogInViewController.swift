@@ -44,41 +44,30 @@ class LogInViewController: UIViewController {
     
     func loginUser(username: String, password: String){
         let userServices = UserServices()
-        Task {
-            do{
-                let userLoginResponse = try await userServices.loginUser(username: username, password: password)
-                if(userLoginResponse.success == 1){
-                    UserAuth.userId = userLoginResponse.data[0].userID
-                    UserAuth.token = userLoginResponse.data[0].token
-                    WebSocketManager.shared.establishConnection(userId: userLoginResponse.data[0].userID)
-                    NotificationManager.shared.displaySimpleNotification(title: "User Loged in", body: "\(userLoginResponse.data[0].userName)")
-                    performSegue(withIdentifier: "goToHomeScene", sender: self)
-                }else{
-                    createAlertBox(titlte: "Login Failed", message: "Incorrect Username or Password")
+        userServices.loginUser(
+            username: username,
+            password: password
+        ){ response in
+            if(response.success == 1){
+                UserAuth.userId = response.data[0].userID
+                UserAuth.token = response.data[0].token
+                WebSocketManager.shared.establishConnection(userId: response.data[0].userID)
+                NotificationManager.shared.displaySimpleNotification(title: "User Loged in", body: "\(response.data[0].userName)")
+                
+                DispatchQueue.main.async{
+                    self.performSegue(withIdentifier: "goToHomeScene", sender: self)
                 }
-            }catch {
-                print(error)
-                createAlertBox(titlte: "Login Failed", message: "Trouble connecting to server")
+            }else{
+                DispatchQueue.main.async{
+                    AlertManager.makeAlertWithOkButton(
+                        title: "Login Failed",
+                        message: "Incorrect username or password",
+                        viewController: self
+                    ){}
+                }
             }
         }
     }
     
-    func createAlertBox(
-        titlte: String,
-        message: String
-    ){
-        // Create new Alert
-        let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        // Create OK button with action handler
-        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-            print("Ok button tapped")
-         })
-        
-        //Add OK button to a dialog message
-        dialogMessage.addAction(ok)
-        // Present Alert to
-        self.present(dialogMessage, animated: true, completion: nil)
-    }
     
 }

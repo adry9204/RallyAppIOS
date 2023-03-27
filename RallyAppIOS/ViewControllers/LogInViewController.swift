@@ -3,8 +3,22 @@
 //  RallyAppIOS
 //
 //  Created by Adriana Diaz Torres on 3/21/23.
+//  Authors
+//  --------------------------------------
+//  Adriana Diaz Toress
+//  301157161
 //
-
+//  Aurela Bala
+//  301279255
+//  Abraham Alfred Babu
+//  Student ID : 301270598
+//
+//  Pia Mae Obias
+//  Student ID: 301283632
+//
+//  Satender Yadav
+//  Student ID: 301293305
+//
 import UIKit
 
 class LogInViewController: UIViewController {

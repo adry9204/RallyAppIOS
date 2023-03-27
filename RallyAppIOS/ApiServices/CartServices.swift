@@ -25,7 +25,7 @@ class CartServices{
             .addParams(key: "userId", value: userId)
             .addParams(key: "menuId", value: menuId)
             .addParams(key: "quantity", value: quantity)
-            .addToken(token: UserAuth.token!)
+            .addToken(token: token)
             .setContentTypeJson()
             .build()
         
@@ -63,7 +63,7 @@ class CartServices{
         let request = RequestBuilder(url: url)
             .setHttpMethod(httpMethod: .GET)
             .setContentTypeJson()
-            .addToken(token: UserAuth.token!)
+            .addToken(token: token)
             .build()
         
         if(request == nil){
@@ -100,7 +100,7 @@ class CartServices{
         let request = RequestBuilder(url: url)
             .setHttpMethod(httpMethod: .DELETE)
             .setContentTypeJson()
-            .addToken(token: UserAuth.token!)
+            .addToken(token: token)
             .build()
         
         if(request == nil){

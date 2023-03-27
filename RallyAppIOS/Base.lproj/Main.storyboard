@@ -398,7 +398,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="nHe-S9-JjF" customClass="CheckoutViewController" customModule="RallyAppIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hPT-SW-ouC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="1340"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GmK-fy-3BL">
@@ -688,7 +688,7 @@
                                     <constraint firstAttribute="height" constant="42" id="cir-lr-7eR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="address-level1"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uhi-E9-cPM">
                                 <rect key="frame" x="45" y="161" width="303" height="42"/>
@@ -1333,7 +1333,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="50l-JY-hLR"/>
-        <segue reference="pKm-2z-OK2"/>
+        <segue reference="FQi-fY-fwq"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="cart" catalog="system" width="128" height="102"/>

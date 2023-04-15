@@ -51,6 +51,7 @@ class AddressService{
         name: String,
         line1: String,
         line2: String,
+        city: String,
         country: String,
         province: String,
         postalCode: String,
@@ -64,6 +65,7 @@ class AddressService{
             .addParams(key: "name", value: name)
             .addParams(key: "line1", value: line1)
             .addParams(key: "line2", value: line2)
+            .addParams(key: "city", value: city)
             .addParams(key: "country", value: country)
             .addParams(key: "province", value: province)
             .addParams(key: "postalCode", value: postalCode)

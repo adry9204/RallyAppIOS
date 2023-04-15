@@ -21,6 +21,7 @@ class AddressItemCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        applyTheme()
     }
     
     func populateCellWithData(data: Address){

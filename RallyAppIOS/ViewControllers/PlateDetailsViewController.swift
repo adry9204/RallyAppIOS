@@ -21,6 +21,7 @@
 //
 import UIKit
 
+
 class PlateDetailsViewController: UIViewController {
     
     static let segueIdentifier = "goToPlateDetailScreen"
@@ -28,17 +29,24 @@ class PlateDetailsViewController: UIViewController {
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productDescription: UITextView!
+    
     @IBOutlet weak var quantityDecreaseButton: UIButton!
     @IBOutlet weak var quantityIncreaseButton: UIButton!
     @IBOutlet weak var quantityLabel: UILabel!
+    @IBOutlet weak var quantityTitle: UILabel!
+    
     @IBOutlet weak var addToCartButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    
     @IBOutlet weak var productPriceLabel: UILabel!
+    @IBOutlet weak var productPriceTitle: UILabel!
     
     var menuItem: Menu? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        applyTheme()
+        
         if(menuItem != nil){
             productName.text = menuItem?.name
             productDescription.text = menuItem?.description
@@ -47,6 +55,7 @@ class PlateDetailsViewController: UIViewController {
             ImageLoader.downloadImage(from: imageURL, view: productImage)
         }
     }
+
     
     @IBAction func addToCartPressed(_ sender: Any) {
        addItemToCart()
@@ -95,14 +104,4 @@ class PlateDetailsViewController: UIViewController {
         quantityLabel.text = String(currentNumber)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

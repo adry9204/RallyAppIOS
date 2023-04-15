@@ -27,6 +27,9 @@ class CartViewController: UIViewController {
     
     @IBOutlet weak var helloLabel: UILabel!
     @IBOutlet weak var cartTableView: UITableView!
+    @IBOutlet weak var cartViewControllerHeaderStackView: UIStackView!
+    @IBOutlet weak var cartViewControllerTagLine: UILabel!
+    @IBOutlet weak var checkoutButton: UIButton!
     
     var order: Order<Int>? = nil
     
@@ -36,6 +39,8 @@ class CartViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        applyTheme()
+        
         //reading the username from Defaults
         let defaults = UserDefaults.standard
         username = defaults.string(forKey: "Username")!
@@ -43,7 +48,7 @@ class CartViewController: UIViewController {
         
         cartTableViewAdapter.tableView = cartTableView
         
-        cartTableView.register(CartItemCellTableViewCell.nib(), forCellReuseIdentifier: CartItemCellTableViewCell.identifier)
+        cartTableView.register(CartItemTableCell.nib(), forCellReuseIdentifier: CartItemTableCell.identifier)
         
         cartTableView.delegate = cartTableViewAdapter
         cartTableView.dataSource = cartTableViewAdapter
@@ -68,26 +73,19 @@ class CartViewController: UIViewController {
     
     private func makeOrder(){
         let orderServices = OrderServices()
-        Task {
-            do{
-                let orderResponse = try await orderServices.makeOrderForUser(
-                    userId: UserAuth.userId!,
-                    token: UserAuth.token!)
-                if(orderResponse.success == 1){
-                    order = orderResponse.data[0]
-                    performSegue(withIdentifier: CheckoutViewController.identifier, sender: self)
-                }else{
-                    AlertManager.makeAlertWithOkButton(
-                        title: "Issues",
-                        message: orderResponse.message,
-                        viewController: self
-                    ){
-                        print("OK Pressed")
-                    }
-                }
-            
-            }catch {
-                print(error)
+        orderServices.makeOrderForUser(
+            userId: UserAuth.userId!,
+            token: UserAuth.token!
+        ){ response in
+            if(response.success == 1){
+                self.order = response.data[0]
+                self.performSegue(withIdentifier: CheckoutViewController.identifier, sender: self)
+            }else{
+                AlertManager.makeAlertWithOkButton(
+                    title: "Failed to make order",
+                    message: "There was an issue while making your order. Please try again!s",
+                    viewController: self
+                ){}
             }
         }
     }

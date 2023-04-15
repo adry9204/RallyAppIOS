@@ -24,20 +24,23 @@ import UIKit
 
 class HomeViewController: UIViewController, HomeTableViewDelegate{
    
-    
-    
     @IBOutlet weak var rallyTableView: UITableView!
     let homeTableViewAdapter = HomeTableViewAdapter()
-    
+    @IBOutlet weak var homeViewControllerHeaderTagLine: UILabel!
     @IBOutlet weak var helloLabel: UILabel!
     var username = ""
     var rallyDataSource: RallyDataSource? = RallyDataSource()
     
+    @IBOutlet weak var homeViewControllerSettingsButton: UIButton!
+    
     var selectedMenu: Menu? = nil
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        applyTheme()
         
         homeTableViewAdapter.tableView = rallyTableView
         homeTableViewAdapter.delegate = self
@@ -48,7 +51,7 @@ class HomeViewController: UIViewController, HomeTableViewDelegate{
         
         
        
-        rallyTableView.register(TableViewCell.nib(), forCellReuseIdentifier: TableViewCell.identifier)
+        rallyTableView.register(HomeTableViewCell.nib(), forCellReuseIdentifier: HomeTableViewCell.identifier)
         
         rallyTableView.delegate = homeTableViewAdapter
         rallyTableView.dataSource = homeTableViewAdapter
@@ -75,6 +78,9 @@ class HomeViewController: UIViewController, HomeTableViewDelegate{
             message: message,
             viewController: self
         ){}
+    }
+    
+    @IBAction func settingsButtonClicked(_ sender: Any) {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

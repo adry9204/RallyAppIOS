@@ -29,15 +29,27 @@ class OrderDetailsViewController: UIViewController {
     let orderListTableViewAdapter = OrderlistTableViewAdapter()
     
     
-    @IBOutlet weak var grandTotalLabel: UILabel!
-    @IBOutlet weak var taxPriceLabel: UILabel!
-    @IBOutlet weak var totalPriceLabel: UILabel!
+    @IBOutlet weak var grandTotalValue: UILabel!
+    @IBOutlet weak var taxPriceValue: UILabel!
+    @IBOutlet weak var totalPriceValue: UILabel!
+    
     @IBOutlet weak var orderDetailsTableView: UITableView!
+    @IBOutlet weak var pageTitle: UILabel!
+    @IBOutlet weak var orderSummaryTitle: UILabel!
+    
+    @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var taxLabel: UILabel!
+    @IBOutlet weak var grandTotatLabel: UILabel!
+    
+    
+    @IBOutlet weak var backButton: UIButton!
     
     var orders: Order<User>? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        applyTheme()
+        
         setUpOrderListTableView()
         setUpSummaryLabels()
     }
@@ -55,9 +67,9 @@ class OrderDetailsViewController: UIViewController {
     
     func setUpSummaryLabels(){
         if(orders != nil){
-            totalPriceLabel.text = "$\(orders!.beforeTaxPrice)"
-            taxPriceLabel.text = "$\(orders!.taxPrice)"
-            grandTotalLabel.text = "$\(orders!.totalPrice)"
+            totalPriceValue.text = "$\(orders!.beforeTaxPrice)"
+            taxPriceValue.text = "$\(orders!.taxPrice)"
+            grandTotalValue.text = "$\(orders!.totalPrice)"
         }
     }
     

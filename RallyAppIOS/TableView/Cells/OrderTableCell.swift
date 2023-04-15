@@ -26,6 +26,7 @@ class OrderTableCell: UITableViewCell {
     }
     
     func populateCellWithData(data: Order<User>){
+        applyTheme()
         orderTitle.text = data.orderDetails[0].menu.name
         itemCountLabel.text = makeItemCountLabelFromOrderDetails(orderDetails: data.orderDetails)
         orderStatusLabel.text = makeOrderLabel(status: data.status)

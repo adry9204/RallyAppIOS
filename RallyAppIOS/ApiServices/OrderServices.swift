@@ -9,107 +9,131 @@ import Foundation
 
 class OrderServices{
     
-    func makeOrderForUser(userId: Int, token: String) async throws -> ApiResponse<Order<Int>> {
+    func makeOrderForUser(
+        userId: Int,
+        token: String,
+        completionHandler: @escaping(_ response: ApiResponse<Order<Int>>) -> Void
+    ){
         
-        let url = URL(string: "http://localhost:8000/api/orders/")
+        let url = ServerConfig.makeUrl(endpoint: "/api/orders/")
+        let request = RequestBuilder(url: url)
+            .setHttpMethod(httpMethod: .POST)
+            .addParams(key: "userId", value: userId)
+            .addToken(token: token)
+            .setContentTypeJson()
+            .build()
         
-
-        var request = URLRequest(url: url!)
-        request.httpMethod = "POST"
-
-        // Create a dictionary to hold the request body data
-        let params: [String: Any] = [
-            "userId": userId,
-        ]
-
-        // Serialize the dictionary to JSON data
-        let jsonData = try JSONSerialization.data(withJSONObject: params, options: [])
-
-        // Set the request body data
-        request.httpBody = jsonData
-
-        // Add the request headers
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        if(request == nil){
+            print("Unable to make request")
+            return
+        }
         
-        let (data, _) = try await URLSession.shared.data(for: request)
-        let decoded = try JSONDecoder().decode(ApiResponse<Order<Int>>.self, from: data)
-        
-        return decoded
+        RequestHandler.shared.makeRequest(request: request!){ data in
+            do{
+                let decoded = try JSONDecoder().decode(ApiResponse<Order<Int>>.self, from: data!)
+                DispatchQueue.main.async {
+                    completionHandler(decoded)
+                }
+            }catch{
+                print(error)
+            }
+        }
     }
     
-    func makePayment(orderId: Int, addressId: Int, token: String) async throws -> ApiResponse<PaymentModel>{
+    func makePayment(
+        orderId: Int,
+        addressId: Int,
+        token: String,
+        completionHandler: @escaping(_ response: ApiResponse<PaymentModel>) -> Void
+    ){
         
-        let url = URL(string: "http://localhost:8000/api/orders/makepayment")
+        let url = ServerConfig.makeUrl(endpoint: "/api/orders/makepayment")
+        let request = RequestBuilder(url: url)
+            .setHttpMethod(httpMethod: .POST)
+            .addParams(key: "orderId", value: orderId)
+            .addParams(key: "addressId", value: addressId)
+            .addToken(token: token)
+            .setContentTypeJson()
+            .build()
         
-
-        var request = URLRequest(url: url!)
-        request.httpMethod = "POST"
-
-        // Create a dictionary to hold the request body data
-        let params: [String: Any] = [
-            "orderId": orderId,
-            "addressId": addressId
-        ]
-
-        // Serialize the dictionary to JSON data
-        let jsonData = try JSONSerialization.data(withJSONObject: params, options: [])
-
-        // Set the request body data
-        request.httpBody = jsonData
-
-        // Add the request headers
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        if(request == nil){
+            return
+        }
         
-        let (data, _) = try await URLSession.shared.data(for: request)
-        let decoded = try JSONDecoder().decode(ApiResponse<PaymentModel>.self, from: data)
-        
-        return decoded
+        RequestHandler.shared.makeRequest(request: request!){ data in
+            do{
+                let decoded = try JSONDecoder().decode(ApiResponse<PaymentModel>.self, from: data!)
+                DispatchQueue.main.async {
+                    completionHandler(decoded)
+                }
+            }catch{
+                print(error.localizedDescription)
+            }
+        }
     }
     
-    func placeOrder(orderId: Int, token: String) async throws -> ApiResponse<Order<Int>>{
-        let url = URL(string: "http://localhost:8000/api/orders/placeorder")
+    func placeOrder(
+        orderId: Int,
+        token: String,
+        completionHandler: @escaping (_ response: ApiResponse<Order<Int>>) -> Void
+    ){
         
-
-        var request = URLRequest(url: url!)
-        request.httpMethod = "POST"
-
-        // Create a dictionary to hold the request body data
-        let params: [String: Any] = [
-            "orderId": orderId,
-        ]
-
-        // Serialize the dictionary to JSON data
-        let jsonData = try JSONSerialization.data(withJSONObject: params, options: [])
-
-        // Set the request body data
-        request.httpBody = jsonData
-
-        // Add the request headers
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let url = ServerConfig.makeUrl(endpoint: "/api/orders/placeorder")
+        let request = RequestBuilder(url: url)
+            .setHttpMethod(httpMethod: .POST)
+            .addParams(key: "orderId", value: orderId)
+            .addToken(token: token)
+            .setContentTypeJson()
+            .build()
         
-        let (data, _) = try await URLSession.shared.data(for: request)
-        let decoded = try JSONDecoder().decode(ApiResponse<Order<Int>>.self, from: data)
+        if(request == nil){
+            return
+        }
         
-        return decoded
+        RequestHandler.shared.makeRequest(request: request!){ data in
+            if(data == nil){
+                print("makeRequest funcontion passed nil")
+                return
+            }
+            do{
+                let decoded = try JSONDecoder().decode(ApiResponse<Order<Int>>.self, from: data!)
+                DispatchQueue.main.async {
+                    completionHandler(decoded)
+                }
+            }catch{
+                print(error)
+            }
+        }
     }
     
-    func getUsersOrder(userId: Int, token: String) async throws -> [Order<User>] {
-        let url = URL(string: "http://localhost:8000/api/orders/user/\(userId)")
-        var request = URLRequest(url: url!)
-        request.httpMethod = "GET"
+    func getUsersOrder(
+        userId: Int,
+        token: String,
+        completionHandler: @escaping (_ response: ApiResponse<Order<User>>) -> Void
+    ) {
+      
         
-        // Add the request headers
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        let url = ServerConfig.makeUrl(endpoint: "/api/orders/user/\(userId)")
+        let request = RequestBuilder(url: url)
+            .addToken(token: token)
+            .setContentTypeJson()
+            .build()
         
-        let (data, _) = try await URLSession.shared.data(for: request)
-        print(data)
-        let decoded = try JSONDecoder().decode(ApiResponse<Order<User>>.self, from: data)
-        print(decoded.success, decoded.message, decoded.data)
-        return decoded.data
+        RequestHandler.shared.makeRequest(request: request!){ data in
+            if(data == nil){
+                print("RequestHandler::makeFunction passed nil to callback function")
+                return
+            }
+            do{
+                let decoded = try JSONDecoder().decode(ApiResponse<Order<User>>.self, from: data!)
+                DispatchQueue.main.async {
+                    completionHandler(decoded)
+                }
+            }catch{
+                print(error)
+            }
+        }
+        
     }
     
     func cancelOrder(
@@ -117,33 +141,27 @@ class OrderServices{
         token: String,
         completionHandler: @escaping (_ response: ApiResponse<Order<User>>) -> Void
     ){
-        let url = URL(string: "http://localhost:8000/api/orders/\(orderId)")
-        var request = URLRequest(url: url!)
-        request.httpMethod = "DELETE"
         
-        // Add the request headers
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        let url = ServerConfig.makeUrl(endpoint: "/api/orders/\(orderId)")
+        let request = RequestBuilder(url: url)
+            .setHttpMethod(httpMethod: .DELETE)
+            .addToken(token: token)
+            .build()
         
-        let session = URLSession.shared
         
-        let task = session.dataTask(with: request){ (data, response, error) in
+        RequestHandler.shared.makeRequest(request: request!) { data in
             do{
-                if let _ = error {
-                    print("RegisterFailed")
+                if(data == nil){
+                    print("RequestHandler::makeFunction passed nil to callback function")
                     return
                 }
-                guard let data = data else {
-                    print("Api call failed")
-                    return
+                let decoded = try JSONDecoder().decode(ApiResponse<Order<User>>.self, from: data!)
+                DispatchQueue.main.async {
+                    completionHandler(decoded)
                 }
-                let decoded = try JSONDecoder().decode(ApiResponse<Order<User>>.self, from: data)
-                completionHandler(decoded)
             }catch{
                 print(error)
             }
         }
-        
-        task.resume()
     }
 }

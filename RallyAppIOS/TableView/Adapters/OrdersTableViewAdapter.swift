@@ -22,15 +22,26 @@ class OrdersTableViewAdapter: NSObject, UITableViewDelegate, UITableViewDataSour
     
     func getUsersOrdersFromApi(){
         let orderServices = OrderServices()
-        Task {
-            do{
-                let orders = try await orderServices.getUsersOrder(userId: UserAuth.userId!, token: UserAuth.token!)
-                data = orders
-                tableView.reloadData()
-            }catch {
-                print(error)
+        orderServices.getUsersOrder(
+            userId: UserAuth.userId!,
+            token: UserAuth.token!
+        ){ response in
+            if(response.success == 1){
+                self.data = response.data
+                self.tableView.reloadData()
+            }else{
+                print(response)
             }
         }
+//        Task {
+//            do{
+//                let orders = try await orderServices.getUsersOrder(userId: UserAuth.userId!, token: UserAuth.token!)
+//                data = orders
+//                tableView.reloadData()
+//            }catch {
+//                print(error)
+//            }
+//        }
     }
     
     func setData(data: Array<Order<User>>){

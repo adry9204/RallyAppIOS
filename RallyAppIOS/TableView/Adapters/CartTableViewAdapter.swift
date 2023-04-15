@@ -44,7 +44,7 @@ class CartTableViewAdapter: NSObject, UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CartItemCellTableViewCell.identifier, for: indexPath) as! CartItemCellTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CartItemTableCell.identifier, for: indexPath) as! CartItemTableCell
         
         cell.populateCellWithData(data: data[indexPath.row])
         return cell

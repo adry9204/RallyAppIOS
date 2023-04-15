@@ -33,12 +33,31 @@ class CheckoutViewController: UIViewController, CartTableViewDelegate {
     let orderListTableViewAdapter = OrderlistTableViewAdapter()
     let addressTableViewAdapter = AddressTableViewAdapter()
     
+    @IBOutlet weak var headerStackView: UIStackView!
+    
     @IBOutlet weak var checkOutOrderListTableView: UITableView!
     @IBOutlet weak var checkOutAddressTableView: UITableView!
     
-    @IBOutlet weak var grandTotalLabel: UILabel!
-    @IBOutlet weak var taxPriceLabel: UILabel!
+    @IBOutlet weak var grandTotalValue: UILabel!
+    @IBOutlet weak var taxPricValue: UILabel!
+    @IBOutlet weak var totalPriceValue: UILabel!
+    
     @IBOutlet weak var totalPriceLabel: UILabel!
+    @IBOutlet weak var taxPriceLabel: UILabel!
+    @IBOutlet weak var grandTotalLabel: UILabel!
+    
+    
+    @IBOutlet weak var greetingsLabel: UILabel!
+    @IBOutlet weak var tagLineLabel: UILabel!
+    
+    @IBOutlet weak var cartItemsTitle: UILabel!
+    @IBOutlet weak var addressTitle: UILabel!
+    @IBOutlet weak var addAddressButton: UIButton!
+    @IBOutlet weak var placeOrderButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    
+    @IBOutlet weak var checkoutViewScrollView: UIScrollView!
+    @IBOutlet weak var scrollViewSubView: UIView!
     
     var paymentSheet: PaymentSheet?
     
@@ -46,6 +65,8 @@ class CheckoutViewController: UIViewController, CartTableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        applyTheme()
+        
         setUpOrderListTableView()
         setUpAddressTableView()
         setUpPriceLabels()
@@ -57,9 +78,9 @@ class CheckoutViewController: UIViewController, CartTableViewDelegate {
     
     private func setUpPriceLabels(){
         if(order != nil){
-            totalPriceLabel.text = "$\(order!.beforeTaxPrice)"
-            taxPriceLabel.text = "$\(order!.taxPrice)"
-            grandTotalLabel.text = "$\(order!.totalPrice)"
+            totalPriceValue.text = "$\(order!.beforeTaxPrice)"
+            taxPricValue.text = "$\(order!.taxPrice)"
+            grandTotalValue.text = "$\(order!.totalPrice)"
         }
     }
     
@@ -118,69 +139,66 @@ class CheckoutViewController: UIViewController, CartTableViewDelegate {
     }
     
     func makePayment(addressId: Int){
-        
         let orderService = OrderServices()
-        Task {
-            do{
-                let paymentResponse = try await orderService.makePayment(orderId: order!.id, addressId: addressId, token: UserAuth.token!)
-                
-                if(paymentResponse.success == 1){
-                    let paymentConfigData = paymentResponse.data[0]
-                    STPAPIClient.shared.publishableKey = paymentConfigData.publishableKey
-                    var configuration = PaymentSheet.Configuration()
-                    configuration.merchantDisplayName = "Rally Restaurant"
-                    configuration.customer = .init(id: paymentConfigData.customer, ephemeralKeySecret: paymentConfigData.ephemeralKey)
-                    self.paymentSheet = PaymentSheet(paymentIntentClientSecret: paymentConfigData.paymentIntent, configuration: configuration)
-                    
-                    paymentSheet?.present(from: self) { paymentResult in
-                        // MARK: Handle the payment result
-                        switch paymentResult {
-                        case .completed:
-                            self.placeOrder(orderId: self.order!.id)
-                        case .canceled:
-                            AlertManager.makeAlertWithOkButton(
-                                title: "Issues",
-                                message: "PaymentCanceled",
-                                viewController: self
-                            ){
-                                print("OK Pressed")
-                            }
-                        case .failed(let error):
-                            AlertManager.makeAlertWithOkButton(
-                                title: "Issues",
-                                message: "Payment Failed \(error)",
-                                viewController: self
-                            ){
-                                print("OK Pressed")
-                            }
-                        }
-                    }
-                }else{
-                    AlertManager.makeAlertWithOkButton(
-                        title: "Issues",
-                        message: paymentResponse.message,
-                        viewController: self
-                    ){
-                        print("OK Pressed")
-                    }
+        orderService.makePayment(orderId: order!.id, addressId: addressId, token: UserAuth.token!){ response in
+            if(response.success != 1){
+                AlertManager.makeAlertWithOkButton(
+                    title: "Issues",
+                    message: response.message,
+                    viewController: self
+                ){
+                    print("OK Pressed")
                 }
+                return
+            }
+            let paymentConfigData = response.data[0]
+            STPAPIClient.shared.publishableKey = paymentConfigData.publishableKey
+            var configuration = PaymentSheet.Configuration()
+            configuration.merchantDisplayName = "Rally Restaurant"
+            configuration.customer = .init(id: paymentConfigData.customer, ephemeralKeySecret: paymentConfigData.ephemeralKey)
+            self.paymentSheet = PaymentSheet(paymentIntentClientSecret: paymentConfigData.paymentIntent, configuration: configuration)
+                
+            self.paymentSheet?.present(from: self, completion: self.handlerPaymentResult)
+        }
+    }
     
-            }catch {
-                print(error)
+    private func handlerPaymentResult(paymentResult: PaymentSheetResult){
+        // MARK: Handle the payment result
+        switch paymentResult {
+        case .completed:
+            self.placeOrder(orderId: self.order!.id)
+        case .canceled:
+            AlertManager.makeAlertWithOkButton(
+                title: "Issues",
+                message: "PaymentCanceled",
+                viewController: self
+            ){
+                print("OK Pressed")
+            }
+        case .failed(let error):
+            AlertManager.makeAlertWithOkButton(
+                title: "Issues",
+                message: "Payment Failed \(error)",
+                viewController: self
+            ){
+                print("OK Pressed")
             }
         }
     }
     
     func placeOrder(orderId: Int){
         let orderService = OrderServices()
-        Task{
-            do{
-                let response = try await orderService.placeOrder(orderId: orderId, token: UserAuth.token!)
-                if(response.success == 1){
-                    performSegue(withIdentifier: "gotBackToTabBarController", sender: self)
+        orderService.placeOrder(orderId: order!.id, token: UserAuth.token!){ response in
+            if(response.success == 1){
+                self.performSegue(withIdentifier: "gotBackToTabBarController", sender: self)
+            }else{
+                AlertManager.makeAlertWithOkButton(
+                    title: "Failed to place order",
+                    message: "There was an issue placing your order",
+                    viewController: self
+                ){
+                    self.performSegue(withIdentifier: "gotBackToTabBarController", sender: self)
                 }
-            }catch{
-                print(error)
             }
         }
     }

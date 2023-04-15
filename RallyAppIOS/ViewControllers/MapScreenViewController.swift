@@ -42,6 +42,7 @@ class MapScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        applyTheme()
         mapView.delegate = self
         let rallyLocation = LocationModel(
             title: "Rally Restaurant",

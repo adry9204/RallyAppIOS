@@ -10,7 +10,7 @@
 //  301157161
 //
 //  Aurela Bala
-//  301279255
+//  301279255q
 //  Abraham Alfred Babu
 //  Student ID : 301270598
 //
@@ -26,6 +26,8 @@ class UserOrdersViewController: UIViewController, OrderTableDelegate {
     
     let orderTableViewAdapter = OrdersTableViewAdapter()
     
+    @IBOutlet weak var headerTagLine: UILabel!
+    @IBOutlet weak var headerStackView: UIStackView!
     @IBOutlet weak var helloLabel: UILabel!
     @IBOutlet weak var orderListTableView: UITableView!
     
@@ -36,6 +38,7 @@ class UserOrdersViewController: UIViewController, OrderTableDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        applyTheme()
         
         //reading the username from Defaults
         let defaults = UserDefaults.standard

@@ -22,7 +22,6 @@ class AlertManager{
         //Add OK button to a dialog message
         dialogMessage.addAction(ok)
         // Present Alert to
-        
         viewController!.present(dialogMessage, animated: true, completion: nil)
     }
 

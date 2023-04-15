@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CartItemCellTableViewCell: UITableViewCell {
+class CartItemTableCell: UITableViewCell {
     
     // identifier for the cell
     static let identifier = "cartItemCell"
@@ -28,6 +28,8 @@ class CartItemCellTableViewCell: UITableViewCell {
     }
     
     func populateCellWithData(data: CartModel){
+        applyThemes()
+        
         productName.text = data.menu.name
         productDescription.text = data.menu.description
         quantityLabel.text = "Qty: \(data.quantity)"

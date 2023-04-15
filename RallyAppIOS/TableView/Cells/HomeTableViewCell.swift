@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
+class HomeTableViewCell: UITableViewCell {
     
     
     // identifier for the cell
@@ -33,6 +33,8 @@ class TableViewCell: UITableViewCell {
         productDescription.text = data.description
         let imageUrl = URL(string: data.image)!
         ImageLoader.downloadImage(from: imageUrl, view: productImage)
+        selectionStyle = .none
+        applyTheme()
     }
     
 }

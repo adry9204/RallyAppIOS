@@ -30,12 +30,17 @@ class AddAddressViewController: UIViewController {
     @IBOutlet weak var addressLine2: UITextField!
     @IBOutlet weak var addressLine1: UITextField!
     @IBOutlet weak var addressName: UITextField!
+    @IBOutlet weak var addAddressTitle: UILabel!
+    
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    
     
     var order: Order<Int>? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        applyTheme()
         // Do any additional setup after loading the view.
     }
     
@@ -85,6 +90,10 @@ class AddAddressViewController: UIViewController {
         }
     }
     
+   @IBAction func cancelButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
     func saveAddress(){
         let addressService = AddressService()
         addressService.addNewAddressForUser(
@@ -93,6 +102,7 @@ class AddAddressViewController: UIViewController {
             name: addressName.text!,
             line1: addressLine1.text!,
             line2: addressLine2.text!,
+            city: "Toronto",
             country: addressCountry.text!,
             province: addressProvince.text!,
             postalCode: addressPostalCode.text!

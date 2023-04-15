@@ -22,7 +22,7 @@ class OrderItemCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        applyTheme()
     }
     
     func populateCellWithData(data: OrderDetail){

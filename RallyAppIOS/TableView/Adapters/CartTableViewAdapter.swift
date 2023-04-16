@@ -12,12 +12,14 @@ class CartTableViewAdapter: NSObject, UITableViewDelegate, UITableViewDataSource
     
     var data: Array<CartModel>
     var tableView: UITableView!
+    var theme: Theme? = nil
     
     weak var delegate: CartTableViewDelegate?
     weak var viewController: UIViewController?
     
     override init() {
         data = Array<CartModel>()
+        theme = ThemeManager.currentTheme()
         super.init()
     }
     
@@ -83,7 +85,7 @@ class CartTableViewAdapter: NSObject, UITableViewDelegate, UITableViewDataSource
         })
         
         // Show Current Cloud Upload Status
-        uploadedAction.backgroundColor = .red
+        uploadedAction.backgroundColor = theme?.primaryColor
         uploadedAction.image = UIImage(systemName: "trash")
         // end uploadedAction
         

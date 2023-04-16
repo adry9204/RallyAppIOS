@@ -12,11 +12,13 @@ class HomeTableViewAdapter: NSObject, UITableViewDelegate, UITableViewDataSource
     
     var data: Array<Menu>
     var tableView: UITableView!
+    var theme: Theme? = nil
     
     weak var delegate: HomeTableViewDelegate?
     
     override init() {
         data = Array<Menu>()
+        theme = ThemeManager.currentTheme()
         super.init()
     }
     
@@ -38,6 +40,7 @@ class HomeTableViewAdapter: NSObject, UITableViewDelegate, UITableViewDataSource
         
         let addToCartAction = UIContextualAction(style: .normal, title: "", handler: { (action, sourceView, completionHandler) in
             let cartServices = CartServices()
+            
             cartServices.addItemToCart(
                 userId: UserAuth.userId!,
                 menuId: self.data[indexPath.row].id,
@@ -65,7 +68,7 @@ class HomeTableViewAdapter: NSObject, UITableViewDelegate, UITableViewDataSource
             }
         })
         
-        addToCartAction.backgroundColor = .rallyGreen
+        addToCartAction.backgroundColor = theme?.secondaryColor
         addToCartAction.image = UIImage(systemName: "cart.fill.badge.plus")
         
         let swipeActionConfiguration = UISwipeActionsConfiguration(actions: [addToCartAction])

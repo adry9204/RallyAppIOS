@@ -14,11 +14,11 @@ extension HomeViewController{
     func applyTheme(){
         let theme = ThemeManager.currentTheme()
         self.view.backgroundColor = theme.backgoundColor
-        self.helloLabel.textColor = theme.primaryText
-        self.homeViewControllerHeaderTagLine.textColor = theme.primaryText
+        self.helloLabel.textColor = theme.standardTextColor
+        self.homeViewControllerHeaderTagLine.textColor = theme.standardTextColor
         self.rallyTableView.backgroundColor = theme.backgoundColor
-        rallyTableView.separatorColor = theme.primaryText
-        homeViewControllerSettingsButton.tintColor = theme.primaryText
+        rallyTableView.separatorColor = theme.standardTextColor
+        homeViewControllerSettingsButton.tintColor = theme.standardTextColor
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{

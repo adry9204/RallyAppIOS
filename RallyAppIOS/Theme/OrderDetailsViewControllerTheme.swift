@@ -14,16 +14,16 @@ extension OrderDetailsViewController{
         let theme = ThemeManager.currentTheme()
         view.backgroundColor = theme.backgoundColor
         orderDetailsTableView.backgroundColor = theme.backgoundColor
-        pageTitle.textColor = theme.primaryText
-        orderSummaryTitle.textColor = theme.primaryText
+        pageTitle.textColor = theme.standardTextColor
+        orderSummaryTitle.textColor = theme.standardTextColor
         
-        totalLabel.textColor = theme.primaryText
-        taxLabel.textColor = theme.primaryText
-        grandTotatLabel.textColor = theme.primaryText
+        totalLabel.textColor = theme.standardTextColor
+        taxLabel.textColor = theme.standardTextColor
+        grandTotatLabel.textColor = theme.standardTextColor
         
-        totalPriceValue.textColor = theme.primaryText
-        taxPriceValue.textColor = theme.primaryText
-        grandTotalValue.textColor = theme.primaryText
+        totalPriceValue.textColor = theme.standardTextColor
+        taxPriceValue.textColor = theme.standardTextColor
+        grandTotalValue.textColor = theme.standardTextColor
         
         backButton.backgroundColor = theme.secondaryColor
         backButton.setTitleColor(.black, for: .normal)

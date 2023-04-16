@@ -12,8 +12,8 @@ extension CartViewController{
     
     func applyTheme(){
         let theme = ThemeManager.currentTheme()
-        helloLabel.textColor = theme.primaryText
-        cartViewControllerTagLine.textColor = theme.primaryText
+        helloLabel.textColor = theme.standardTextColor
+        cartViewControllerTagLine.textColor = theme.standardTextColor
         view.backgroundColor = theme.backgoundColor
         checkoutButton.tintColor = theme.primaryColor
         checkoutButton.setTitleColor(theme.textOnPrimary, for: .normal)
@@ -21,7 +21,7 @@ extension CartViewController{
         cartViewControllerHeaderStackView.backgroundColor = theme.backgoundColor
         cartTableView.backgroundColor = theme.backgoundColor
         
-        cartTableView.separatorColor = theme.primaryText
+        cartTableView.separatorColor = theme.standardTextColor
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{

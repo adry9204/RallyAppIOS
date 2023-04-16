@@ -50,8 +50,12 @@ extension UIColor {
         return UIColor.colorFromHexString("#90EE90")
     }
     
+//    static var darkGreen: UIColor{
+//        return UIColor.colorFromHexString("#0A333C")
+//    }
+    
     static var darkGreen: UIColor{
-        return UIColor.colorFromHexString("#0A333C")
+        return UIColor.colorFromHexString("#0A704E")
     }
     
     static var minimalLightGray: UIColor{
@@ -63,7 +67,7 @@ extension UIColor {
     }
     
     static var midGreen: UIColor {
-        return UIColor.colorFromHexString("#266B1C")
+        return UIColor.colorFromHexString("#6F9D80")
     }
     
     static var yellowGreen: UIColor {
@@ -88,19 +92,6 @@ enum Theme: Int{
         }
     }
     
-    var primaryText: UIColor {
-        switch self {
-        case.light:
-            return.black
-        case.dark:
-            return.white
-        case.boldWhite:
-            return.black
-        case.minimalDark:
-            return .white
-        }
-    }
-    
     var primaryColor: UIColor {
         switch self{
         case .light:
@@ -114,24 +105,6 @@ enum Theme: Int{
         }
     }
     
-    
-    var textOnPrimary: UIColor {
-        return .white
-    }
-    
-    var secondaryTextColor: UIColor {
-        switch self {
-        case .light:
-            return .darkGreen
-        case .dark:
-            return .primaryOrange
-        case .boldWhite:
-            return .minimalDarkGray
-        case .minimalDark:
-            return .minimalLightGreen
-        }
-    }
-    
     var secondaryColor: UIColor {
         switch self{
         case .light:
@@ -141,8 +114,67 @@ enum Theme: Int{
         case .boldWhite:
             return .minimalLightGray
         case .minimalDark:
-            return .minimalLightGreen
+            return .midGreen
         }
+    }
+    
+    var standardColor: UIColor {
+        switch self {
+        case .light:
+            return .minimalLightGray
+        case .dark:
+            return .minimalLightGray
+        case .boldWhite:
+            return .minimalLightGray
+        case .minimalDark:
+            return .minimalLightGray
+        }
+    }
+    
+        
+    
+    var primaryTextColor: UIColor {
+        switch self {
+        case.light:
+            return.primaryOrange
+        case.dark:
+            return.primaryOrange
+        case.boldWhite:
+            return.black
+        case.minimalDark:
+            return .minimalOrange
+        }
+    }
+    
+    var secondaryTextColor: UIColor {
+        switch self {
+        case .light:
+            return .darkGreen
+        case .dark:
+            return .midGreen
+        case .boldWhite:
+            return .minimalDarkGray
+        case .minimalDark:
+            return .midGreen
+        }
+    }
+   
+    var standardTextColor: UIColor {
+        switch self {
+        case .light:
+            return .black
+        case .dark:
+            return .white
+        case .boldWhite:
+            return .black
+        case .minimalDark:
+            return .white
+        }
+    }
+    
+    
+    var textOnPrimary: UIColor {
+        return .white
     }
     
     var textOnSecondary: UIColor{
@@ -158,12 +190,25 @@ enum Theme: Int{
         }
     }
     
+    var textOnStandard: UIColor {
+        switch self{
+        case .light:
+            return .black
+        case .dark:
+            return .black
+        case .boldWhite:
+            return .black
+        case .minimalDark:
+            return .black
+        }
+    }
+    
     var toggleColor: UIColor{
         switch self{
         case .light:
             return .darkGreen
         case .dark:
-            return .minimalLightGreen
+            return .midGreen
         case .boldWhite:
             return .black
         case .minimalDark:
@@ -247,6 +292,5 @@ class ThemeManager{
         UITabBar.appearance().barTintColor = .white
         UITabBar.appearance().tintColor = theme.tabBarColor
         
-        UIApplication.shared.statusBarStyle = .lightContent
     }
 }

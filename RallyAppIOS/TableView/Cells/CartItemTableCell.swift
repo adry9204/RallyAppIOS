@@ -25,14 +25,17 @@ class CartItemTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        selectionStyle = SelectionStyle.none
+        
     }
     
     func populateCellWithData(data: CartModel){
         applyThemes()
         
         productName.text = data.menu.name
-        productDescription.text = data.menu.description
-        quantityLabel.text = "Qty: \(data.quantity)"
+        let description = (data.menu.description.isEmpty) ? "No description" : data.menu.description
+        productDescription.text = description
+        quantityLabel.text = "\(data.quantity)"
         productPrice.text = "$\(data.menu.price)"
         
         let url = URL(string: data.menu.image)!

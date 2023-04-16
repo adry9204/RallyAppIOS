@@ -67,6 +67,10 @@ class CheckoutViewController: UIViewController, CartTableViewDelegate {
         super.viewDidLoad()
         applyTheme()
         
+        let defaults = UserDefaults.standard
+        let username = defaults.string(forKey: "Username")!
+        greetingsLabel.text = "Hello \(username)👋"
+        
         setUpOrderListTableView()
         setUpAddressTableView()
         setUpPriceLabels()

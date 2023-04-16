@@ -12,7 +12,7 @@ extension AddAddressViewController{
     func applyTheme(){
         let theme = ThemeManager.currentTheme()
         view.backgroundColor = theme.backgoundColor
-        addAddressTitle.textColor = theme.primaryText
+        addAddressTitle.textColor = theme.standardTextColor
         
         setUITextFieldTheme(addressName, theme: theme)
         setUITextFieldTheme(addressLine1, theme: theme)
@@ -30,7 +30,7 @@ extension AddAddressViewController{
     
     func setUITextFieldTheme(_ uiTExtField: UITextField, theme: Theme){
         uiTExtField.backgroundColor = theme.backgoundColor
-        uiTExtField.textColor = theme.primaryText
+        uiTExtField.textColor = theme.standardTextColor
         uiTExtField.tintColor = theme.primaryColor
         uiTExtField.attributedPlaceholder = NSAttributedString(
             string: uiTExtField.placeholder!,

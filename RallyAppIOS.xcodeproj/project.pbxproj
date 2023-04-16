@@ -28,8 +28,6 @@
 		F615612B29D00C0600E5FA17 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F615612A29D00C0600E5FA17 /* RequestBuilder.swift */; };
 		F632410629CBE8D5003C0080 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632410529CBE8D5003C0080 /* AlertManager.swift */; };
 		F66468C129EA6C4A0008BF69 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66468C029EA6C4A0008BF69 /* SettingsViewController.swift */; };
-		F66468C429EA6E2A0008BF69 /* ThemeSelectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66468C229EA6E2A0008BF69 /* ThemeSelectTableViewCell.swift */; };
-		F66468C529EA6E2A0008BF69 /* ThemeSelectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F66468C329EA6E2A0008BF69 /* ThemeSelectTableViewCell.xib */; };
 		F664AE4E29EA2D3600AF8335 /* PlateDetailsViewControllerTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F664AE4D29EA2D3600AF8335 /* PlateDetailsViewControllerTheme.swift */; };
 		F664AE5029EA349B00AF8335 /* AddAddressViewControllerTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F664AE4F29EA349B00AF8335 /* AddAddressViewControllerTheme.swift */; };
 		F664AE5229EA3B9200AF8335 /* MapScreenViewControllerTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F664AE5129EA3B9200AF8335 /* MapScreenViewControllerTheme.swift */; };
@@ -113,8 +111,6 @@
 		F615612A29D00C0600E5FA17 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 		F632410529CBE8D5003C0080 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		F66468C029EA6C4A0008BF69 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		F66468C229EA6E2A0008BF69 /* ThemeSelectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectTableViewCell.swift; sourceTree = "<group>"; };
-		F66468C329EA6E2A0008BF69 /* ThemeSelectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemeSelectTableViewCell.xib; sourceTree = "<group>"; };
 		F664AE4D29EA2D3600AF8335 /* PlateDetailsViewControllerTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlateDetailsViewControllerTheme.swift; sourceTree = "<group>"; };
 		F664AE4F29EA349B00AF8335 /* AddAddressViewControllerTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewControllerTheme.swift; sourceTree = "<group>"; };
 		F664AE5129EA3B9200AF8335 /* MapScreenViewControllerTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenViewControllerTheme.swift; sourceTree = "<group>"; };
@@ -341,8 +337,6 @@
 				F6F4D3F029CC2FAC00058B88 /* AddressItemCell.xib */,
 				F6F4D40029CD029000058B88 /* OrderTableCell.swift */,
 				F6F4D40129CD029000058B88 /* OrderTableCell.xib */,
-				F66468C229EA6E2A0008BF69 /* ThemeSelectTableViewCell.swift */,
-				F66468C329EA6E2A0008BF69 /* ThemeSelectTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -449,7 +443,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F66468C529EA6E2A0008BF69 /* ThemeSelectTableViewCell.xib in Resources */,
 				284DF3D829C9FD2400EBFE73 /* LaunchScreen.storyboard in Resources */,
 				F6F4D40329CD029000058B88 /* OrderTableCell.xib in Resources */,
 				3FBF002829CAA0C7007BBCFA /* TableViewCell.xib in Resources */,
@@ -529,7 +522,6 @@
 				F682E29429E9846B0042EF8C /* OrderTableCellTheme.swift in Sources */,
 				F664AE5029EA349B00AF8335 /* AddAddressViewControllerTheme.swift in Sources */,
 				F6F8E26629CB8D9F00F37E9C /* ImageLoader.swift in Sources */,
-				F66468C429EA6E2A0008BF69 /* ThemeSelectTableViewCell.swift in Sources */,
 				284DF3CE29C9FD2200EBFE73 /* SceneDelegate.swift in Sources */,
 				F6F8E25729CB7DD000F37E9C /* MenuModels.swift in Sources */,
 				F6F8E25529CB7DD000F37E9C /* UserModel.swift in Sources */,

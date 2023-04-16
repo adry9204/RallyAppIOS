@@ -74,7 +74,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let attributedString = NSAttributedString(
             string: pickerData[row].themeName,
-            attributes: [NSAttributedString.Key.foregroundColor : theme.primaryText]
+            attributes: [NSAttributedString.Key.foregroundColor : theme.standardTextColor]
         )
         return attributedString
     }
@@ -94,8 +94,8 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         self.view.backgroundColor = theme.backgoundColor
         
-        settingsLabel.textColor = theme.primaryText
-        selectThemeLabel.textColor = theme.primaryText
+        settingsLabel.textColor = theme.standardTextColor
+        selectThemeLabel.textColor = theme.standardTextColor
         
         themePicker.tintColor = theme.secondaryColor
         themePicker.backgroundColor = theme.backgoundColor

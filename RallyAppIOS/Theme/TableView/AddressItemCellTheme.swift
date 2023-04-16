@@ -13,8 +13,8 @@ extension AddressItemCell{
         let theme = ThemeManager.currentTheme()
         
         contentView.backgroundColor = theme.backgoundColor
-        addressLine1.textColor  = theme.primaryText
-        addressName.textColor = theme.primaryText
+        addressLine1.textColor  = theme.standardTextColor
+        addressName.textColor = theme.standardTextColor
         
         addressSelectedToggle.onTintColor = theme.toggleColor
     }

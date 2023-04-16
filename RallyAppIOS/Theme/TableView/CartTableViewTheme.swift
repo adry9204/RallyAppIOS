@@ -12,10 +12,10 @@ extension CartItemTableCell{
     func applyThemes(){
         let theme = ThemeManager.currentTheme()
         contentView.backgroundColor = theme.backgoundColor
-        productDescription.textColor = theme.primaryText
+        productDescription.textColor = theme.standardTextColor
         productDescription.backgroundColor = theme.backgoundColor
-        productName.textColor = theme.primaryText
-        quantityLabel.textColor = theme.primaryText
+        productName.textColor = theme.primaryTextColor
+        quantityLabel.textColor = theme.textOnStandard
         productPrice.textColor = theme.secondaryTextColor
     }
 }

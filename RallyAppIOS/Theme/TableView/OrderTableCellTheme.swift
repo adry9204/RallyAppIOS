@@ -12,9 +12,9 @@ extension OrderTableCell{
     func applyTheme(){
         let theme = ThemeManager.currentTheme()
         contentView.backgroundColor = theme.backgoundColor
-        orderTitle.textColor = theme.primaryText
-        itemCountLabel.textColor = theme.primaryColor
+        orderTitle.textColor = theme.primaryTextColor
+        itemCountLabel.textColor = theme.textOnStandard
         orderStatusLabel.textColor = theme.secondaryTextColor
-        orterTotalLabel.textColor = theme.secondaryTextColor
+        orterTotalLabel.textColor = theme.standardTextColor
     }
 }

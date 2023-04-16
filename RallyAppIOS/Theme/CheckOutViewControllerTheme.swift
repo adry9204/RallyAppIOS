@@ -18,26 +18,26 @@ extension CheckoutViewController{
         scrollViewSubView.backgroundColor = theme.backgoundColor
         
         headerStackView.backgroundColor = theme.backgoundColor
-        greetingsLabel.textColor = theme.primaryText
-        tagLineLabel.textColor = theme.primaryText
+        greetingsLabel.textColor = theme.standardTextColor
+        tagLineLabel.textColor = theme.standardTextColor
         
-        cartItemsTitle.textColor = theme.primaryText
+        cartItemsTitle.textColor = theme.standardTextColor
         checkOutOrderListTableView.backgroundColor = theme.backgoundColor
         
-        addressTitle.textColor = theme.primaryText
+        addressTitle.textColor = theme.standardTextColor
         checkOutAddressTableView.backgroundColor = theme.backgoundColor
         
         addAddressButton.tintColor = theme.primaryColor
         addAddressButton.setTitleColor(theme.textOnPrimary, for: .normal)
         
-        totalPriceLabel.textColor = theme.primaryText
-        totalPriceValue.textColor = theme.primaryText
+        totalPriceLabel.textColor = theme.standardTextColor
+        totalPriceValue.textColor = theme.standardTextColor
         
-        taxPriceLabel.textColor = theme.primaryText
-        taxPricValue.textColor = theme.primaryText
+        taxPriceLabel.textColor = theme.standardTextColor
+        taxPricValue.textColor = theme.standardTextColor
         
-        grandTotalLabel.textColor = theme.primaryText
-        grandTotalValue.textColor = theme.primaryText
+        grandTotalLabel.textColor = theme.standardTextColor
+        grandTotalValue.textColor = theme.standardTextColor
         
         placeOrderButton.tintColor = theme.primaryColor
         placeOrderButton.setTitleColor(theme.textOnPrimary, for: .normal)

@@ -14,10 +14,10 @@ extension PlateDetailsViewController{
         let theme = ThemeManager.currentTheme()
         view.backgroundColor = theme.backgoundColor
         
-        productName.textColor = theme.primaryText
-        productDescription.textColor = theme.primaryText
+        productName.textColor = theme.standardTextColor
+        productDescription.textColor = theme.standardTextColor
         productDescription.backgroundColor = theme.backgoundColor
-        quantityLabel.textColor = theme.primaryText
+        quantityLabel.textColor = theme.standardTextColor
         productPriceLabel.textColor = theme.secondaryTextColor
         
         addToCartButton.tintColor = theme.primaryColor
@@ -32,7 +32,7 @@ extension PlateDetailsViewController{
         )
         
         
-        productPriceTitle.textColor = theme.primaryText
+        productPriceTitle.textColor = theme.standardTextColor
         
         quantityDecreaseButton.tintColor = theme.secondaryColor
         quantityIncreaseButton.imageView?.tintColor = theme.secondaryColor
@@ -40,7 +40,7 @@ extension PlateDetailsViewController{
         quantityIncreaseButton.tintColor = theme.secondaryColor
         quantityIncreaseButton.imageView?.tintColor = theme.secondaryColor
         
-        quantityTitle.textColor = theme.primaryText
+        quantityTitle.textColor = theme.standardTextColor
         
     }
     

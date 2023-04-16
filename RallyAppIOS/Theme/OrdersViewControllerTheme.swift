@@ -14,10 +14,10 @@ extension UserOrdersViewController{
         let theme = ThemeManager.currentTheme()
         view.backgroundColor = theme.backgoundColor
         headerStackView.backgroundColor = theme.backgoundColor
-        headerTagLine.textColor = theme.primaryText
-        helloLabel.textColor = theme.primaryText
+        headerTagLine.textColor = theme.standardTextColor
+        helloLabel.textColor = theme.standardTextColor
         orderListTableView.backgroundColor = theme.backgoundColor
-        orderListTableView.separatorColor = theme.primaryText
+        orderListTableView.separatorColor = theme.standardTextColor
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{

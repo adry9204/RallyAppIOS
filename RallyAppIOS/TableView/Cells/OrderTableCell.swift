@@ -15,6 +15,7 @@ class OrderTableCell: UITableViewCell {
     @IBOutlet weak var itemCountLabel: UILabel!
     @IBOutlet weak var orderStatusLabel: UILabel!
     @IBOutlet weak var orterTotalLabel: UILabel!
+    @IBOutlet weak var itemCountContainer: UIView!
     
     static func nib()->UINib{
         return UINib(nibName: "OrderTableCell", bundle: nil)
@@ -28,9 +29,17 @@ class OrderTableCell: UITableViewCell {
     func populateCellWithData(data: Order<User>){
         applyTheme()
         orderTitle.text = data.orderDetails[0].menu.name
-        itemCountLabel.text = makeItemCountLabelFromOrderDetails(orderDetails: data.orderDetails)
+        let itemCount = makeItemCountLabelFromOrderDetails(orderDetails: data.orderDetails)
+        
+        if(itemCount != ""){
+            itemCountContainer.isHidden = false
+        }else{
+            itemCountContainer.isHidden = true
+        }
+        
+        itemCountLabel.text = itemCount
         orderStatusLabel.text = makeOrderLabel(status: data.status)
-        orterTotalLabel.text = data.totalPrice
+        orterTotalLabel.text = "$\(data.totalPrice)"
     }
     
     func makeOrderLabel(status: String)-> String{

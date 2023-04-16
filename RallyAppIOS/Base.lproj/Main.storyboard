@@ -153,7 +153,7 @@
                                     <constraint firstAttribute="width" constant="247" id="EJB-Un-SQQ"/>
                                     <constraint firstAttribute="height" constant="40" id="Tbg-Uj-kZ2"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -439,7 +439,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="jiI-eQ-kFw"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -1152,7 +1152,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Z47-fi-sQC"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1383,7 +1383,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="hN3-7s-RrX"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1473,7 +1473,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="C0b-RV-vuY"/>
+        <segue reference="50l-JY-hLR"/>
         <segue reference="pKm-2z-OK2"/>
     </inferredMetricsTieBreakers>
     <resources>

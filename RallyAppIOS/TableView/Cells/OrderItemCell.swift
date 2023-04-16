@@ -27,7 +27,7 @@ class OrderItemCell: UITableViewCell {
     
     func populateCellWithData(data: OrderDetail){
         productName.text = data.menu.name
-        quantityLabel.text = "Qty: \(data.quantity)"
+        quantityLabel.text = "\(data.quantity)"
         priceLabel.text = "$\(data.menu.price)"
         
         ImageLoader.downloadImage(from: URL(string: data.menu.image)!, view: productImage)

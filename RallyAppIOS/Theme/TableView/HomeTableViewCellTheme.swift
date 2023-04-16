@@ -12,9 +12,9 @@ extension HomeTableViewCell{
     func applyTheme(){
         let theme = ThemeManager.currentTheme()
         self.contentView.backgroundColor = theme.backgoundColor
-        self.nameLabel.textColor = theme.primaryText
+        self.nameLabel.textColor = theme.primaryTextColor
         self.priceLabel.textColor = theme.secondaryTextColor
-        self.productDescription.textColor = theme.primaryText
+        self.productDescription.textColor = theme.standardTextColor
         self.productDescription.backgroundColor = theme.backgoundColor
     }
 }

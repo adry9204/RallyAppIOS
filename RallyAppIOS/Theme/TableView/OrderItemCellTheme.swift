@@ -12,8 +12,8 @@ extension OrderItemCell {
     func applyTheme(){
         let theme = ThemeManager.currentTheme()
         contentView.backgroundColor = theme.backgoundColor
-        productName.textColor = theme.primaryText
-        quantityLabel.textColor = theme.primaryText
+        productName.textColor = theme.primaryTextColor
+        quantityLabel.textColor = theme.textOnStandard
         priceLabel.textColor = theme.secondaryTextColor
     }
 }

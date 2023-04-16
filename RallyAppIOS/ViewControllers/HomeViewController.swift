@@ -34,13 +34,14 @@ class HomeViewController: UIViewController, HomeTableViewDelegate{
     @IBOutlet weak var homeViewControllerSettingsButton: UIButton!
     
     var selectedMenu: Menu? = nil
-
+    var theme: Theme? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         applyTheme()
+        theme = ThemeManager.currentTheme()
         
         homeTableViewAdapter.tableView = rallyTableView
         homeTableViewAdapter.delegate = self

@@ -30,7 +30,8 @@ class HomeTableViewCell: UITableViewCell {
     func populatTableCell(data: Menu){
         nameLabel.text = data.name
         priceLabel.text = "$\(data.price)"
-        productDescription.text = data.description
+        let description = (data.description.isEmpty) ? "No description" : data.description
+        productDescription.text = description
         let imageUrl = URL(string: data.image)!
         ImageLoader.downloadImage(from: imageUrl, view: productImage)
         selectionStyle = .none

@@ -70,6 +70,7 @@ class PlateDetailsViewController: UIViewController {
             token: UserAuth.token!
         ){ response in
             
+            print("Cart added")
             if(response.success == 0){
                 DispatchQueue.main.async {
                     AlertManager.makeAlertWithOkButton(
@@ -79,9 +80,10 @@ class PlateDetailsViewController: UIViewController {
                     ){}
                 }
                 return
-            }
-            DispatchQueue.main.async {
-                self.dismiss(animated: true)
+            }else{
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true)
+                }
             }
         }
     }

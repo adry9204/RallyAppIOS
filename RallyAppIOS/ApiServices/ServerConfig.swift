@@ -8,7 +8,7 @@
 import Foundation
 
 class ServerConfig{
-    static let SERVER = "http://localhost:8000"
+    static let SERVER = "https://still-brushlands-66800.herokuapp.com"
     
     static func makeUrl(endpoint: String) -> URL{
         let urlString = ServerConfig.SERVER + endpoint

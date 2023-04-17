@@ -11,7 +11,7 @@ struct User: Decodable {
     let id: Int
     let fullName, userName, password, email: String
     let verified, admin: Bool
-    let stripeCustomerID: String
+    let stripeCustomerID: String?
 
     enum CodingKeys: String, CodingKey {
         case id, fullName, userName, password, email, verified, admin

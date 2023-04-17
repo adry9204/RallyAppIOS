@@ -15,10 +15,10 @@ class CartServices{
         completetionHandler: @escaping(_ response: ApiResponse<CartModel>) -> Void
     ) {
         
-        let url = URL(string: "http://localhost:8000/api/cart/")
+        let url = ServerConfig.makeUrl(endpoint: "/api/cart/")
         let session = URLSession.shared
         
-        let request = RequestBuilder(url: url!)
+        let request = RequestBuilder(url: url)
             .setHttpMethod(httpMethod: .POST)
             .addParams(key: "userId", value: userId)
             .addParams(key: "menuId", value: menuId)
@@ -34,14 +34,16 @@ class CartServices{
         
         let task = session.dataTask(with: request!){ (data, response, error) in
             do{
-                if let _ = error {
-                    print("RegisterFailed")
+                if let error = error {
+                    print(error)
                     return
                 }
                 guard let data = data else {
                     print("Api call failed")
                     return
                 }
+                print(String(data: data, encoding: .utf8))
+                print(response!)
                 let decoded = try JSONDecoder().decode(ApiResponse<CartModel>.self, from: data)
                 completetionHandler(decoded)
             }catch{

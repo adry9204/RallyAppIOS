@@ -38,7 +38,9 @@ class UserServices{
                     return
                 }
                 let decoded = try JSONDecoder().decode(ApiResponse<UserLoginResponse>.self, from: data)
-                completionHandler(decoded)
+                DispatchQueue.main.async{
+                    completionHandler(decoded)
+                }
             }catch{
                 print(error)
             }

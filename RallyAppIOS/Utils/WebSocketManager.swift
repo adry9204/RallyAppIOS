@@ -19,7 +19,7 @@ enum OrderStatus: String{
 
 class WebSocketManager{
     static let shared = WebSocketManager()
-    var manager = SocketManager(socketURL: URL(string: "http://localhost:8000")!)
+    var manager = SocketManager(socketURL: URL(string: "https://still-brushlands-66800.herokuapp.com")!)
     var socket: SocketIOClient!
     
     func establishConnection(userId: Int){

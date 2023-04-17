@@ -26,15 +26,22 @@ class LogInViewController: UIViewController {
     //the white view that has all the elements inside
     @IBOutlet weak var containerView: UIView!
     
+    @IBOutlet weak var loadingWheel: UIActivityIndicatorView!
+    
+    @IBOutlet weak var loginView: UIView!
     @IBOutlet weak var loginButton: UIButton!
     //TextFields for the credentials
     @IBOutlet weak var usernameTextInput: UITextField!
     @IBOutlet weak var passwordTextInput: UITextField!
     
+    @IBOutlet weak var rallyLogoImageView: UIImageView!
+    @IBOutlet weak var loginScreenTitle: UILabel!
+    @IBOutlet weak var loginScreenSubtitle: UILabel!
+    @IBOutlet weak var registerTItle: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        applyTheme()
         containerView.layer.cornerRadius = 15
  
     }
@@ -57,11 +64,13 @@ class LogInViewController: UIViewController {
     }
     
     func loginUser(username: String, password: String){
+        showLoading()
         let userServices = UserServices()
         userServices.loginUser(
             username: username,
             password: password
         ){ response in
+            self.stopLoading()
             if(response.success == 1){
                 UserAuth.userId = response.data[0].userID
                 UserAuth.token = response.data[0].token
@@ -83,5 +92,47 @@ class LogInViewController: UIViewController {
         }
     }
     
+    func applyTheme(){
+        let theme = ThemeManager.currentTheme()
+        
+        
+        loginView.backgroundColor = theme.backgoundColor
+        
+        if(theme == .boldWhite){
+            loginScreenTitle.textColor = theme.primaryTextColor
+        }else{
+            loginScreenTitle.textColor = theme.secondaryTextColor
+        }
+       
+        loginScreenSubtitle.textColor = theme.standardColor
+        
+        registerTItle.setAttributedTitle(
+            NSAttributedString(
+                string: "Dont have an account yet?",
+                attributes:
+                    [NSAttributedString.Key.foregroundColor: theme.primaryTextColor]
+            ), for: .normal)
+        
+        if(theme == .boldWhite){
+            loginButton.tintColor = theme.primaryColor
+        }else{
+            loginButton.tintColor = theme.secondaryColor
+        }
+                
+        
+    }
     
+    func showLoading(){
+        view.isUserInteractionEnabled = false
+        loadingWheel.isHidden = false
+    }
+    
+    func stopLoading(){
+        view.isUserInteractionEnabled = true
+        loadingWheel.isHidden = true
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }
